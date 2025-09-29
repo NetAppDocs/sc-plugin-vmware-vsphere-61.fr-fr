@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_rest_api_workflow__back_up_on_demand.html 
+keywords:  
+summary: Pour effectuer des opérations de sauvegarde à la demande à l’aide du SnapCenter Plug-in for VMware vSphere , vous devez suivre la séquence prescrite d’appels d’API REST. 
+---
+= Workflow de l'API REST pour la sauvegarde à la demande
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pour effectuer des opérations de sauvegarde à la demande à l’aide du SnapCenter Plug-in for VMware vSphere , vous devez suivre la séquence prescrite d’appels d’API REST.
+
+Pour chaque API REST, ajoutez `\https://<server>:<port>` à l'avant de l'API REST pour former un point de terminaison complet.
+
+|===
+| Étape | API REST | Commentaires 
+
+
+| 1 | `/4.1/resource-groups` | `Get List of Resource Groups`obtient la liste des groupes de ressources client VMware vSphere.  Notez le *resourceGroupId* et le *policyId* du groupe de ressources que vous souhaitez sauvegarder. 
+
+
+| 2 | `/4.1/resource-groups/backupnow` | `Run a backup on a Resource Group`sauvegarde le groupe de ressources à la demande.  Transmettez le *resourceGroupId* et le *policyId* de l’étape 1. 
+|===

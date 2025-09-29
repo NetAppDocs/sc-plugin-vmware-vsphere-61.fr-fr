@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_rest_apis_fail_stuck_jobs.html 
+keywords:  
+summary: 'Pour rechercher les ID de travail des travaux client VMware vSphere à l"aide du SnapCenter Plug-in for VMware vSphere , vous devez utiliser les appels d"API REST pour VMware vSphere.' 
+---
+= API REST pour marquer les tâches bloquées comme ayant échoué
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pour rechercher les ID de travail des travaux client VMware vSphere à l'aide du SnapCenter Plug-in for VMware vSphere , vous devez utiliser les appels d'API REST pour VMware vSphere.  Ces API REST ont été ajoutées dans le SnapCenter Plug-in for VMware vSphere 4.4.
+
+Pour chaque API REST, ajoutez \https://<server>:<port>` au début de l'API REST pour former un point de terminaison complet.
+
+Utilisez l'API REST suivante dans la section Tâches pour modifier les tâches bloquées dans un état d'exécution vers un état d'échec :
+
+|===
+| API REST | Commentaires 
+
+
+| `/4.1/jobs/{id}/failJobs` | Lorsque vous transmettez les identifiants des tâches bloquées dans un état d'exécution, `failJobs` marque ces tâches comme ayant échoué. Pour identifier les tâches bloquées dans un état d'exécution, utilisez l'interface graphique du moniteur de tâches pour voir l'état de chaque tâche et l'ID de tâche. 
+|===

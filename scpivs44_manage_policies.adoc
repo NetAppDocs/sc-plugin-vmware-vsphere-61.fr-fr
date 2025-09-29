@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_manage_policies.html 
+keywords:  
+summary: Vous pouvez créer, modifier, afficher, détacher et supprimer des stratégies de sauvegarde pour SnapCenter Plug-in for VMware vSphere.  Des politiques sont nécessaires pour effectuer des opérations de protection des données. 
+---
+= Gérer les politiques
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez créer, modifier, afficher, détacher et supprimer des stratégies de sauvegarde pour SnapCenter Plug-in for VMware vSphere.  Des politiques sont nécessaires pour effectuer des opérations de protection des données.
+
+
+
+== Détacher les politiques
+
+Vous pouvez détacher des stratégies d'un groupe de ressources SnapCenter Plug-in for VMware vSphere lorsque vous ne souhaitez plus que ces stratégies régissent la protection des données des ressources.  Vous devez détacher une politique avant de pouvoir la supprimer ou avant de modifier la fréquence de planification.
+
+.À propos de cette tâche
+Les instructions de détachement des stratégies des groupes de ressources SnapCenter Plug-in for VMware vSphere diffèrent des instructions pour les groupes de ressources SnapCenter .  Pour un groupe de ressources client VMware vSphere, il est possible de détacher toutes les stratégies, ce qui laisse le groupe de ressources sans stratégie.  Cependant, pour effectuer des opérations de protection des données sur ce groupe de ressources, vous devez attacher au moins une stratégie.
+
+.Étapes
+. Dans le volet de navigation gauche du plug-in SCV, sélectionnez *Groupes de ressources*, puis sélectionnez un groupe de ressources et sélectionnez *Modifier*.
+. Sur la page *Stratégies* de l’assistant *Modifier le groupe de ressources*, décochez la case en regard des stratégies que vous souhaitez détacher.
++
+Vous pouvez également ajouter une politique au groupe de ressources en cochant la politique.
+
+. Apportez des modifications supplémentaires au groupe de ressources dans le reste de l’assistant, puis sélectionnez *Terminer*.
+
+
+
+
+== Modifier les politiques
+
+Vous pouvez modifier les stratégies d'un groupe de ressources SnapCenter Plug-in for VMware vSphere .  Vous pouvez modifier la fréquence, les options de réplication, les paramètres de conservation des instantanés ou les informations des scripts lorsqu'une stratégie est attachée à un groupe de ressources.
+
+.À propos de cette tâche
+La modification des stratégies de sauvegarde du SnapCenter Plug-in for VMware vSphere diffère de la modification des stratégies de sauvegarde pour les plug-ins basés sur l'application SnapCenter .  Vous n’avez pas besoin de détacher les stratégies des groupes de ressources lorsque vous modifiez les stratégies du plug-in.
+
+Avant de modifier les paramètres de réplication ou de conservation, vous devez prendre en compte les conséquences possibles.
+
+* Augmentation des paramètres de réplication ou de rétention
++
+Les sauvegardes continuent de s’accumuler jusqu’à ce qu’elles atteignent le nouveau paramètre.
+
+* Diminution des paramètres de réplication ou de rétention
++
+Les sauvegardes dépassant le nouveau paramètre sont supprimées lors de la sauvegarde suivante.
+
+
+
+
+NOTE: Pour modifier une planification de stratégie SnapCenter Plug-in for VMware vSphere , vous devez modifier la planification dans le groupe de ressources du plug-in.
+
+.Étapes
+. Dans le volet de navigation de gauche du plug-in SCV, sélectionnez *Politiques*, puis sélectionnez une politique et sélectionnez *Modifier*.
+. Modifier les champs de politique.
+. Lorsque vous avez terminé, sélectionnez *Mettre à jour*.
+
+
+Les modifications prennent effet lors de la prochaine sauvegarde planifiée.
+
+
+
+== Supprimer les politiques
+
+Si vous n'avez plus besoin d'une politique de sauvegarde configurée pour SnapCenter Plug-in for VMware vSphere, vous souhaiterez peut-être la supprimer.
+
+.Avant de commencer
+Vous devez avoir détaché la stratégie de tous les groupes de ressources de l'appliance virtuelle pour SnapCenter avant de pouvoir la supprimer.
+
+.Étapes
+. Dans le volet de navigation gauche du plug-in SCV, sélectionnez *Politiques*, puis sélectionnez une politique et sélectionnez *Supprimer*.
+. Dans la boîte de dialogue de confirmation, sélectionnez *OK*.
+

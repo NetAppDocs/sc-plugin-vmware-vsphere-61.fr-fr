@@ -1,0 +1,193 @@
+---
+sidebar: sidebar 
+permalink: scv48_audit_logs.html 
+keywords:  
+summary: 'Le journal d"audit permet de savoir qui a fait quoi et quand.  Un journal d"audit est un ensemble d"événements classés par ordre chronologique et écrit dans un fichier au sein de l"appareil.' 
+---
+= Journaux d'audit
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Un journal d'audit est un ensemble d'événements classés par ordre chronologique, qui est écrit dans un fichier au sein de l'appareil.  Les fichiers journaux d'audit sont générés à `/var/log/netapp/audit` emplacement et les noms de fichiers suivent l'une des conventions de dénomination ci-dessous :
+
+* audit.log : fichier journal d'audit actif en cours d'utilisation.
+* audit-%d{yyyy-MM-dd-HH-mm-ss}.log.gz : fichier journal d'audit renouvelé.  La date et l'heure dans le nom du fichier indiquent quand le fichier a été créé, par exemple : audit-2022-12-15-16-28-01.log.gz.
+
+
+Dans l'interface utilisateur du plug-in SCV, vous pouvez afficher et exporter les détails du journal d'audit depuis *Tableau de bord* > *Paramètres* > Onglet *Journaux d'audit*. Vous pouvez afficher l'audit des opérations dans les journaux d'audit.  Les journaux d'audit sont téléchargés avec le pack de support.
+
+Si les paramètres de messagerie électronique sont configurés, SCV envoie une notification par courrier électronique en cas d'échec de la vérification de l'intégrité du journal d'audit.  Une échec de vérification de l’intégrité du journal d’audit peut se produire lorsqu’un des fichiers est falsifié ou supprimé.
+
+Les configurations par défaut des fichiers d'audit sont :
+
+* Le fichier journal d'audit utilisé peut atteindre un maximum de 10 Mo
+* Un maximum de 10 fichiers journaux d'audit sont conservés
+
+
+L’intégrité des journaux d’audit renouvelés est vérifiée périodiquement.  SCV fournit des API REST pour afficher les journaux et vérifier leur intégrité.  Un calendrier intégré déclenche et attribue l’un des statuts d’intégrité suivants.
+
+|===
+
+
+| Statut | Description 
+
+
+| Altéré | Le contenu du fichier journal d'audit est modifié 
+
+
+| NORMALE | Le fichier journal d'audit n'est pas modifié 
+
+
+| SUPPRESSION PAR SURVOL | - Le fichier journal d'audit est supprimé en fonction de la conservation - Par défaut, seuls 10 fichiers sont conservés 
+
+
+| SUPPRESSION INATTENDUE | Le fichier journal d'audit est supprimé 
+
+
+| ACTIF | - Le fichier journal d'audit est en cours d'utilisation - Applicable uniquement à audit.log 
+|===
+Les événements sont classés en trois grandes catégories :
+
+* Événements sur la protection des données
+* Événements de la console de maintenance
+* Événements de la console d'administration
+
+
+
+
+== Événements sur la protection des données
+
+Les ressources de SCV sont :
+
+* Système de stockage
+* Groupe de ressources
+* Politique
+* Sauvegarde
+* Abonnement
+* Compte
+
+
+Le tableau suivant répertorie les opérations qui peuvent être effectuées sur chaque ressource :
+
+|===
+
+
+| *Ressources* | *Opérations* 
+
+
+| Système de stockage | Créé, modifié, supprimé 
+
+
+| Abonnement | Créé, modifié, supprimé 
+
+
+| Compte | Créé, modifié, supprimé 
+
+
+| Groupe de ressources | Créé, modifié, supprimé, suspendu, repris 
+
+
+| Politique | Créé, modifié, supprimé 
+
+
+| Sauvegarde | Créé, renommé, supprimé, monté, démonté, VMDK restauré, VM restaurée, attacher VMDK, détacher VMDK, restauration de fichiers invités 
+|===
+
+
+== Événements de la console de maintenance
+
+Les opérations administratives dans la console de maintenance sont auditées.  Les options de console de maintenance disponibles sont :
+
+. Démarrer / Arrêter les services
+. Changer le nom d'utilisateur et le mot de passe
+. Changer le mot de passe MySQL
+. Configurer la sauvegarde MySQL
+. Restaurer la sauvegarde MySQL
+. Modifier le mot de passe de l'utilisateur « maint »
+. Changer de fuseau horaire
+. Changer le serveur NTP
+. Désactiver l'accès SSH
+. Augmenter la taille du disque de prison
+. Mise à niveau
+. Installer VMware Tools (nous travaillons à le remplacer par des outils open-vm)
+. Modifier les paramètres d'adresse IP
+. Modifier les paramètres de recherche de nom de domaine
+. Modifier les itinéraires statiques
+. Accéder au shell de diagnostic
+. Activer l'accès au diagnostic à distance
+
+
+
+
+== Événements de la console d'administration
+
+Les opérations suivantes dans l’interface utilisateur de la console d’administration sont auditées :
+
+* Paramètres
++
+** Modifier les informations d'identification de l'administrateur
+** Changer de fuseau horaire
+** Changer le serveur NTP
+** Modifier les paramètres d'adresse IPv4/IPv6
+
+
+* Configuration
++
+** Modifier les informations d'identification de vCenter
+** Activation/désactivation du plug-in
+
+
+
+
+
+
+== Configurer les serveurs syslog
+
+Les journaux d'audit sont stockés dans l'appareil et leur intégrité est vérifiée périodiquement.  La transmission d'événements vous permet d'obtenir des événements de l'ordinateur source ou de transmission et de les stocker sur un ordinateur centralisé, qui est le serveur Syslog.  Les données sont cryptées lors du transit entre la source et la destination.
+
+.Avant de commencer
+Vous devez disposer des privilèges d'administrateur.
+
+.À propos de cette tâche
+Cette tâche vous aide à configurer le serveur syslog.
+
+.Étapes
+. Connectez-vous au SnapCenter Plug-in for VMware vSphere.
+. Dans le volet de navigation de gauche, sélectionnez *Paramètres* > *Journaux d’audit* > *Paramètres*.
+. Dans le volet *Paramètres du journal d'audit*, sélectionnez *Envoyer les journaux d'audit au serveur Syslog*
+. Saisissez les informations suivantes :
++
+** IP du serveur Syslog
+** Port du serveur Syslog
+** Format RFC
+** Certificat du serveur Syslog
+
+
+. Sélectionnez *ENREGISTRER* pour enregistrer les paramètres du serveur Syslog.
+
+
+
+
+== Modifier les paramètres du journal d'audit
+
+Vous pouvez modifier les configurations par défaut des paramètres du journal.
+
+.Avant de commencer
+Vous devez disposer des privilèges d'administrateur.
+
+.À propos de cette tâche
+Cette tâche vous aide à modifier les paramètres du journal d’audit par défaut.
+
+.Étapes
+. Connectez-vous au SnapCenter Plug-in for VMware vSphere.
+. Dans le volet de navigation de gauche, sélectionnez *Paramètres* > *Journaux d’audit* > *Paramètres*.
+. Dans le volet *Paramètres du journal d'audit*, entrez le nombre maximal de fichiers journaux d'audit et la limite de taille du fichier journal d'audit.
+. Sélectionnez l'option *Envoyer les journaux d'audit au serveur Syslog* si vous choisissez d'envoyer les journaux au serveur Syslog.  Entrez les détails du serveur.
+. Enregistrez les paramètres.
+

@@ -1,0 +1,40 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_upgrade_to_a_new_patch.html 
+keywords:  
+summary: 'Si vous effectuez une mise à niveau vers un nouveau correctif de la même version, vous devez effacer le cache du SnapCenter Plug-in for VMware vSphere sur le serveur Web vCenter et redémarrer le serveur avant la mise à niveau ou l"enregistrement.' 
+---
+= Mise à niveau vers un nouveau correctif de la même version de SnapCenter Plug-in for VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si vous effectuez une mise à niveau vers un nouveau correctif de la même version, vous devez effacer le cache du SnapCenter Plug-in for VMware vSphere sur le serveur Web vCenter et redémarrer le serveur avant la mise à niveau ou l'enregistrement.
+
+Si le cache du plug-in n'est pas vidé, les tâches récentes ne s'affichent pas dans le tableau de bord et le moniteur de tâches dans les scénarios suivants :
+
+* Le SnapCenter Plug-in for VMware vSphere a été déployé à l’aide de vCenter, puis mis à niveau ultérieurement vers un correctif dans la même version.
+* L'appliance virtuelle SnapCenter VMware a été déployée dans vCenter 1.  Plus tard, ce SnapCenter Plug-in for VMware vSphere a été enregistré sur un nouveau vCenter2.  Une nouvelle instance du SnapCenter Plug-in for VMware vSphere est créée avec un correctif et enregistrée sur vCenter1.  Cependant, étant donné que vCenter1 dispose toujours du plug-in mis en cache du premier SnapCenter Plug-in for VMware vSphere sans le correctif, le cache doit être vidé.
+
+
+
+
+== Étapes pour vider le cache
+
+. Localisez le `vsphere-client-serenity` dossier, puis recherchez le `com.netapp.scv.client-<release-number>` dossier et supprimez-le.
++
+Le nom du dossier change à chaque version.
+
++
+Reportez-vous à la documentation VMware pour connaître l'emplacement du `vsphere-client-serenity` dossier pour votre système d'exploitation.
+
+. Redémarrez le serveur vCenter.
++
+Vous pouvez ensuite mettre à niveau le SnapCenter Plug-in for VMware vSphere.
+
+

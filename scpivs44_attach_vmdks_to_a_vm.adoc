@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_attach_vmdks_to_a_vm.html 
+keywords:  
+summary: 'Vous pouvez attacher un ou plusieurs VMDK d"une sauvegarde à la machine virtuelle parente, ou à une autre machine virtuelle sur le même hôte ESXi, ou à une autre machine virtuelle sur un autre hôte ESXi géré par le même vCenter ou un autre vCenter en mode lié.  Les machines virtuelles dans les magasins de données traditionnels et dans les magasins de données vVol sont prises en charge.' 
+---
+= Attacher des VMDK à une VM ou à une VM vVol
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez attacher un ou plusieurs VMDK d'une sauvegarde à la machine virtuelle parente, ou à une autre machine virtuelle sur le même hôte ESXi, ou à une autre machine virtuelle sur un autre hôte ESXi géré par le même vCenter ou un autre vCenter en mode lié.  Les machines virtuelles dans les magasins de données traditionnels et dans les magasins de données vVol sont prises en charge.
+
+Cela facilite la restauration d'un ou plusieurs fichiers individuels à partir d'un lecteur au lieu de restaurer le lecteur entier.  Vous pouvez détacher le VMDK après avoir restauré ou accédé aux fichiers dont vous avez besoin.
+
+.À propos de cette tâche
+Vous disposez des options de connexion suivantes :
+
+* Vous pouvez attacher des disques virtuels à partir d’une sauvegarde principale ou secondaire.
+* Vous pouvez attacher des disques virtuels à la machine virtuelle parente (la même machine virtuelle à laquelle le disque virtuel était initialement associé) ou à une autre machine virtuelle sur le même hôte ESXi.
+
+
+Les limitations suivantes s’appliquent à la connexion de disques virtuels :
+
+* Les opérations d’attachement et de détachement ne sont pas prises en charge pour les modèles de machine virtuelle.
+* Lorsque plus de 15 VMDK sont connectés à un contrôleur iSCSI, la machine virtuelle pour SnapCenter Plug-in for VMware vSphere ne peut pas localiser les numéros d'unité VMDK supérieurs à 15 en raison des restrictions VMware.
++
+Dans ce cas, ajoutez les contrôleurs SCSi manuellement et essayez à nouveau l’opération de connexion.
+
+* Vous ne pouvez pas attacher manuellement un disque virtuel qui a été attaché ou monté dans le cadre d'une opération de restauration de fichiers invités.
+* Les opérations de connexion et de restauration connectent les VMDK à l'aide du contrôleur SCSi par défaut.  Cependant, lorsque les VMDK attachés à une machine virtuelle avec un disque NVMe sont sauvegardés, les opérations d'attachement et de restauration utilisent le contrôleur NVMe s'il est disponible.
+
+
+.Avant de commencer
+Suivez les étapes ci-dessous pour ajouter un contrôleur NVMe au disque.
+
+. Connectez-vous au client vCenter
+. Sélectionnez la machine virtuelle à partir du magasin de données VMFS
+. Faites un clic droit sur la VM et accédez à *Modifier les paramètres*
+. Dans la fenêtre d'édition des paramètres, sélectionnez *Ajouter un nouveau périphérique* > *Contrôleur NVMe*
+
+
+.Étapes
+. Dans l’interface graphique du client VMware vSphere, sélectionnez *Menu* dans la barre d’outils, puis sélectionnez *Hôtes et clusters* dans la liste déroulante.
+. Dans le volet de navigation de gauche, cliquez avec le bouton droit sur une machine virtuelle, puis sélectionnez * SnapCenter Plug-in for VMware vSphere* > *Attacher un ou plusieurs disques virtuels*.
+. Dans la fenêtre *Attach Virtual Disk*, dans la section *Sauvegarde*, sélectionnez une sauvegarde.
++
+Vous pouvez filtrer la liste de sauvegarde en sélectionnant l'icône de filtre et en choisissant une plage de dates et d'heures, en sélectionnant si vous souhaitez des sauvegardes contenant des snapshots VMware, si vous souhaitez des sauvegardes montées et l'emplacement. Sélectionnez *OK*.
+
+. Dans la section *Sélectionner les disques*, sélectionnez un ou plusieurs disques que vous souhaitez connecter et l'emplacement à partir duquel vous souhaitez vous connecter (principal ou secondaire).
++
+Vous pouvez modifier le filtre pour afficher les emplacements principaux et secondaires.
+
+. Par défaut, les disques virtuels sélectionnés sont attachés à la machine virtuelle parente. Pour attacher les disques virtuels sélectionnés à une autre machine virtuelle dans le même hôte ESXi, sélectionnez *Cliquez ici pour attacher à une autre machine virtuelle* et spécifiez la machine virtuelle alternative.
+. Sélectionnez *Joindre*.
+. Facultatif : Surveillez la progression de l'opération dans la section *Tâches récentes*.
++
+Actualisez l'écran pour afficher les informations mises à jour.
+
+. Vérifiez que le disque virtuel est connecté en procédant comme suit :
++
+.. Sélectionnez *Menu* dans la barre d’outils, puis sélectionnez *VM et modèles* dans la liste déroulante.
+.. Dans le volet de navigation de gauche, cliquez avec le bouton droit sur une machine virtuelle, puis sélectionnez *Modifier les paramètres* dans la liste déroulante.
+.. Dans la fenêtre *Modifier les paramètres*, développez la liste de chaque disque dur pour voir la liste des fichiers du disque.
++
+image:scpivs44_image23.png["Modifier la fenêtre des paramètres"]
+
++
+La page Modifier les paramètres répertorie les disques sur la machine virtuelle.  Vous pouvez développer les détails de chaque disque dur pour voir la liste des disques virtuels connectés.
+
+
+
+
+
+.Résultat
+Vous pouvez accéder aux disques connectés à partir du système d’exploitation hôte, puis récupérer les informations nécessaires à partir des disques.

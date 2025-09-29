@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_restore_from_backups_overview.html 
+keywords:  
+summary: Vous pouvez restaurer des machines virtuelles, des VMDK, des fichiers et des dossiers à partir de sauvegardes principales ou secondaires. 
+---
+= Aperçu de la restauration
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez restaurer des machines virtuelles, des VMDK, des fichiers et des dossiers à partir de sauvegardes principales ou secondaires.
+
+* Destinations de restauration de machines virtuelles
++
+Vous pouvez restaurer des machines virtuelles traditionnelles sur l'hôte d'origine, sur un autre hôte dans le même vCenter Server, ou sur un autre hôte ESXi géré par le même vCenter ou tout autre vCenter en mode lié.
+
++
+Vous pouvez restaurer les machines virtuelles vVol sur l’hôte d’origine.
+
+* Destinations de restauration VMDK
++
+Vous pouvez restaurer les VMDK dans les machines virtuelles traditionnelles vers l'original ou vers un autre magasin de données.
+
++
+Vous pouvez restaurer les VMDK des machines virtuelles vVol vers la banque de données d'origine.
+
+
+
+Vous pouvez également restaurer des fichiers et des dossiers individuels dans une session de restauration de fichiers invités, qui joint une copie de sauvegarde d'un disque virtuel, puis restaure les fichiers ou dossiers sélectionnés.
+
+Vous ne pouvez pas restaurer les éléments suivants :
+
+* Magasins de données
++
+Vous ne pouvez pas utiliser le SnapCenter Plug-in for VMware vSphere pour restaurer une banque de données, uniquement les machines virtuelles individuelles de la banque de données.
+
+* Sauvegardes des machines virtuelles supprimées
++
+Vous ne pouvez pas restaurer les sauvegardes des machines virtuelles de stockage qui ont été supprimées.  Par exemple, si vous ajoutez une machine virtuelle de stockage à l’aide du LIF de gestion, puis créez une sauvegarde, puis supprimez cette machine virtuelle de stockage et ajoutez un cluster contenant cette même machine virtuelle de stockage, l’opération de restauration de la sauvegarde échouera.
+
+

@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_overview_of_different_snapcenter_guis.html 
+keywords:  
+summary: SnapCenter Plug-in for VMware vSphere est un plug-in autonome différent des autres plug-ins SnapCenter . Vous devez utiliser l’interface graphique du client VMware vSphere dans vCenter pour toutes les opérations de sauvegarde et de restauration des machines virtuelles, des VMDK et des banques de données. 
+---
+= Présentation des différentes interfaces graphiques de SnapCenter
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Dans votre environnement SnapCenter , vous devez utiliser l'interface graphique appropriée pour effectuer des opérations de protection et de gestion des données.
+
+SnapCenter Plug-in for VMware vSphere est un plug-in autonome différent des autres plug-ins SnapCenter . Vous devez utiliser l’interface graphique du client VMware vSphere dans vCenter pour toutes les opérations de sauvegarde et de restauration des machines virtuelles, des VMDK et des banques de données.  Vous utilisez également le tableau de bord de l'interface graphique du client Web pour surveiller la liste des machines virtuelles protégées et non protégées.  Pour toutes les autres opérations de plug-in SnapCenter (plug-ins basés sur des applications) telles que la sauvegarde, la restauration et la surveillance des tâches, vous utilisez l'interface graphique utilisateur SnapCenter .
+
+Pour protéger les machines virtuelles et les banques de données, vous utilisez l’interface client VMware vSphere. L'interface graphique du client Web s'intègre à la technologie de snapshot NetApp sur le système de stockage. Cela vous permet de sauvegarder des machines virtuelles et des banques de données en quelques secondes et de restaurer des machines virtuelles sans mettre un hôte ESXi hors ligne.
+
+Il existe également une interface graphique de gestion permettant d'effectuer des opérations administratives sur le SnapCenter Plug-in for VMware vSphere.
+
+Le tableau suivant présente les opérations effectuées par l’interface graphique SnapCenter .
+
+|===
+| Utilisez cette interface graphique… | Pour effectuer ces opérations... | Et pour accéder à ces sauvegardes... 
+
+
+| Interface utilisateur graphique du client SnapCenter vSphere | Sauvegarde de VM et de banque de données Connexion et détachement de VMDK Montage et démontage de banque de données Restauration de VM et de VMDK Restauration de fichiers et de dossiers invités | Sauvegardes de machines virtuelles et de banques de données à l'aide de l'interface graphique du client VMware vSphere. 
+
+
+| Interface utilisateur graphique SnapCenter | Sauvegarde et restauration de bases de données et d'applications sur machines virtuelles, y compris la protection des bases de données pour Microsoft SQL Server, Microsoft Exchange et Oracle. Clonage de base de données | Sauvegardes effectuées à l'aide de l'interface graphique SnapCenter . 
+
+
+| SnapCenter Plug-in for VMware vSphere | Modifier la configuration réseau Générer un bundle de support Modifier les paramètres du serveur NTP Désactiver/activer le plug-in | N / A 
+
+
+| Interface graphique vCenter | Ajouter des rôles SCV aux utilisateurs de vCenter Active Directory Ajouter un accès aux ressources aux utilisateurs ou aux groupes | N / A 
+|===
+Pour les opérations de sauvegarde et de restauration cohérentes avec la machine virtuelle, vous devez utiliser l'interface graphique du client VMware vSphere. Bien qu'il soit possible d'effectuer certaines opérations à l'aide des outils VMware, par exemple monter ou renommer une banque de données, ces opérations ne seront pas enregistrées dans le référentiel SnapCenter et ne seront pas reconnues.
+
+SnapCenter ne prend pas en charge les snapshots uniques de bases de données et de machines virtuelles ensemble. Les sauvegardes des machines virtuelles et des bases de données doivent être planifiées et exécutées indépendamment, ce qui crée des instantanés distincts même si les bases de données et les machines virtuelles sont hébergées dans le même volume. Les sauvegardes basées sur les applications doivent être planifiées à l'aide de l'interface graphique SnapCenter ; les sauvegardes cohérentes avec les machines virtuelles doivent être planifiées à l'aide de l'interface graphique du client VMware vSphere.

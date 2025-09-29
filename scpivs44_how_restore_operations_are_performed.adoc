@@ -1,0 +1,72 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_how_restore_operations_are_performed.html 
+keywords:  
+summary: 'Pour les environnements VMFS, le SnapCenter Plug-in for VMware vSphere utilise des opérations de clonage et de montage avec Storage VMotion pour effectuer des opérations de restauration.  Pour les environnements NFS, le plug-in utilise ONTAP Single File SnapRestore (SFSR) natif pour offrir une plus grande efficacité pour la plupart des opérations de restauration.  Pour les machines virtuelles vVol, le plug-in utilise ONTAP Single File Snapshot Restore et SnapMirror Restore pour les opérations de restauration.' 
+---
+= Comment les opérations de restauration sont effectuées
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pour les environnements VMFS, le SnapCenter Plug-in for VMware vSphere utilise des opérations de clonage et de montage avec Storage VMotion pour effectuer des opérations de restauration.  Pour les environnements NFS, le plug-in utilise ONTAP Single File SnapRestore (SFSR) natif pour offrir une plus grande efficacité pour la plupart des opérations de restauration.  Pour les machines virtuelles vVol, le plug-in utilise ONTAP Single File Snapshot Restore (ONTAP SFSR) et SnapMirror Restore pour les opérations de restauration.  Le tableau suivant répertorie la manière dont les opérations de restauration sont effectuées.
+
+|===
+| Opérations de restauration | Depuis | Réalisé à l'aide 
+
+
+| VM et VMDK | Sauvegardes principales | Environnements NFS : ONTAP Single File SnapRestore Environnements VMFS : Cloner et monter avec Storage VMotion 
+
+
+| VM et VMDK | Sauvegardes secondaires | Environnements NFS : ONTAP Single File SnapRestore Environnements VMFS : Cloner et monter avec Storage VMotion 
+
+
+| VM et VMDK supprimés | Sauvegardes principales | Environnements NFS : ONTAP Single File SnapRestore Environnements VMFS : Cloner et monter avec Storage VMotion 
+
+
+| VM et VMDK supprimés | Sauvegardes secondaires | Environnements NFS : Cloner et monter avec Storage VMotion Environnements VMFS : Cloner et monter avec Storage VMotion 
+
+
+| VM et VMDK | Sauvegardes principales cohérentes avec les machines virtuelles | Environnements NFS : ONTAP Single File SnapRestore Environnements VMFS : Cloner et monter avec Storage VMotion 
+
+
+| VM et VMDK | Sauvegardes secondaires cohérentes avec les machines virtuelles | Environnements NFS : restauration ONTAP SnapMirror Environnements VMFS : clonage et montage avec Storage VMotion 
+
+
+| machines virtuelles vVol | Sauvegardes primaires cohérentes en cas de panne | ONTAP Single File SnapRestore pour tous les protocoles 
+
+
+| machines virtuelles vVol | Sauvegardes secondaires cohérentes en cas de panne | Restauration ONTAP SnapMirror pour tous les protocoles 
+
+
+| Machines virtuelles FlexGroup | Sauvegardes principales  a| 
+Environnements NFS : * ONTAP Single File SnapRestore si vous utilisez ONTAP version 9.10.1 et ultérieure * Cloner et monter avec Storage VMotion sur les versions précédentes ONTAP
+
+Environnements VMFS : non pris en charge pour FlexGroups
+
+
+
+| Machines virtuelles FlexGroup | Sauvegardes secondaires  a| 
+Environnements NFS :
+
+* Restauration ONTAP SnapMirror si vous utilisez ONTAP version 9.10.1 et ultérieure
+* Cloner et monter avec Storage VMotion pour les versions précédentes ONTAP
+
+
+Environnements VMFS : non pris en charge pour FlexGroups
+
+|===
+
+NOTE: Vous ne pouvez pas restaurer une machine virtuelle vVol après un rééquilibrage du conteneur vVol.
+
+Les opérations de restauration de fichiers invités sont effectuées à l'aide d'opérations de clonage et de montage (et non de Storage VMotion) dans les environnements NFS et VMFS.
+
+
+IMPORTANT: Lors d'une opération de restauration, vous pourriez rencontrer l'erreur `Host unresolved volumes is null` ou `Exception while calling pre-restore on SCV….Error mounting cloned LUN as datastore…` Cela se produit lorsque le SnapCenter Plug-in for VMware vSphere tente de resigner le clone.  En raison des restrictions VMware, le SnapCenter Plug-in for VMware vSphere ne peut pas contrôler la valeur de resignature automatique dans les configurations d'hôte ESXi avancées.  Pour le stockage NVMe sur TCP et NVMe sur FC, SCV ne peut pas ajouter de contrôleurs de manière dynamique lorsqu'un nouveau sous-système est ajouté.  Vous devez effectuer le mappage nécessaire avant l'opération de montage.
+
+Se référer à https://kb.netapp.com/mgmt/SnapCenter/SCV_clone_or_restores_fail_with_error_'Host_Unresolved_volumes_is_null'#["Article de la base de connaissances : Le clonage ou la restauration SCV échoue avec l'erreur « Les volumes non résolus de l'hôte sont nuls »"^] pour plus d'informations sur l'erreur.

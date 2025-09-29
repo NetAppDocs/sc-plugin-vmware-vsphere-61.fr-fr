@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_manage_backups.html 
+keywords:  
+summary: Vous pouvez renommer et supprimer les sauvegardes effectuées par SnapCenter Plug-in for VMware vSphere. Vous pouvez également supprimer plusieurs sauvegardes simultanément. 
+---
+= Gérer les sauvegardes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez renommer et supprimer les sauvegardes effectuées par SnapCenter Plug-in for VMware vSphere. Vous pouvez également supprimer plusieurs sauvegardes simultanément.
+
+
+
+== Renommer les sauvegardes
+
+Vous pouvez renommer les sauvegardes SnapCenter Plug-in for VMware vSphere si vous souhaitez fournir un meilleur nom pour améliorer la recherche.
+
+
+NOTE: Le système de stockage ASA r2 ne prend pas en charge le changement de nom des sauvegardes.
+
+.Étapes
+. Sélectionnez *Menu* et sélectionnez l'option de menu *Hôtes et clusters*, puis sélectionnez une machine virtuelle, puis sélectionnez l'onglet *Configurer*, puis sélectionnez *Sauvegardes* dans la section * SnapCenter Plug-in for VMware vSphere*.
++
+image:scv50_image1.png["Écran du client vSphere"]
+
+. Dans l’onglet Configurer, sélectionnez une sauvegarde, puis sélectionnez *Renommer*.
+. Dans la boîte de dialogue *Renommer la sauvegarde*, entrez le nouveau nom et sélectionnez *OK*.
++
+N'utilisez pas les caractères spéciaux suivants dans les noms de machines virtuelles, de banques de données, de politiques, de sauvegardes ou de groupes de ressources : & * $ # @ ! \ / : * ? " < > - | ; ' , et l'espace. Un caractère de soulignement (_) est autorisé.
+
+
+
+
+
+== Supprimer les sauvegardes
+
+Vous pouvez supprimer les sauvegardes du SnapCenter Plug-in for VMware vSphere si vous n'avez plus besoin de la sauvegarde pour d'autres opérations de protection des données.  Vous pouvez supprimer une sauvegarde ou supprimer plusieurs sauvegardes simultanément.
+
+.Avant de commencer
+Vous ne pouvez pas supprimer les sauvegardes montées.  Vous devez démonter une sauvegarde avant de pouvoir la supprimer.
+
+.À propos de cette tâche
+les snapshots sur le stockage secondaire sont gérés par vos paramètres de rétention ONTAP , et non par le SnapCenter Plug-in for VMware vSphere.  Par conséquent, lorsque vous utilisez le SnapCenter Plug-in for VMware vSphere pour supprimer une sauvegarde, les snapshots sur le stockage principal sont supprimés, mais les snapshots sur le stockage secondaire ne sont pas supprimés.  Si un instantané existe toujours sur le stockage secondaire, le SnapCenter Plug-in for VMware vSphere conserve les métadonnées associées à la sauvegarde pour prendre en charge les demandes de restauration.  Lorsque le processus de rétention ONTAP supprime le snapshot secondaire, le SnapCenter Plug-in for VMware vSphere supprime les métadonnées à l'aide d'une tâche de purge, exécutée à intervalles réguliers.
+
+. Sélectionnez *Menu* et sélectionnez l'option de menu *Hôtes et clusters*, puis sélectionnez une machine virtuelle, puis sélectionnez l'onglet *Configurer*, puis sélectionnez *Sauvegardes* dans la section * SnapCenter Plug-in for VMware vSphere*.
++
+image:scv50_image1.png["Fenêtre du client vSphere"]
+
+. Sélectionnez une ou plusieurs sauvegardes et sélectionnez *Supprimer*.
++
+Vous pouvez sélectionner un maximum de 40 sauvegardes à supprimer.
+
+. Sélectionnez *OK* pour confirmer l’opération de suppression.
+. Actualisez la liste de sauvegarde en sélectionnant l’icône d’actualisation dans la barre de menus vSphere de gauche.
+

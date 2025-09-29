@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_view_status_information.html 
+keywords:  
+summary: 'Vous pouvez afficher les informations d’état sur le tableau de bord du client vSphere.  Les informations d"état sont mises à jour une fois par heure.' 
+---
+= Afficher les informations d'état
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez afficher les informations d’état sur le tableau de bord du client vSphere.  Les informations d'état sont mises à jour une fois par heure.
+
+.Étapes
+. À partir de la page de raccourcis du client vCenter, sélectionnez SnapCenter Plug-in for VMware vSphere (SCV).
+. Dans le volet de navigation de gauche de SCV, sélectionnez *Tableau de bord* > *État*.
+. Consultez les informations d'état générales ou sélectionnez un lien pour plus de détails, comme indiqué dans le tableau suivant.
++
+|===
+| Cette tuile de tableau de bord… | Affiche les informations suivantes… 
+
+
+ a| 
+Activités professionnelles récentes
+ a| 
+Les trois à cinq tâches de sauvegarde, de restauration et de montage les plus récentes.
+
+** Sélectionnez un ID de travail pour voir plus de détails sur ce travail.
+** Sélectionnez *Voir tout* pour accéder à l’onglet Moniteur de tâches pour plus de détails sur toutes les tâches.
+
+
+
+
+ a| 
+Emplois
+ a| 
+Un décompte de chaque type de tâche (sauvegarde, restauration et montage) effectuée dans la fenêtre temporelle sélectionnée.  Passez le curseur sur une section du graphique pour voir plus de détails sur cette catégorie.
+
+
+
+ a| 
+Dernier résumé de protection
+ a| 
+Résumés de l'état de protection des données des machines virtuelles ou des banques de données principales et secondaires dans la fenêtre temporelle sélectionnée.
+
+** Sélectionnez le menu déroulant pour sélectionner *VM* ou *Datastores*.
+** Pour le stockage secondaire, sélectionnez * SnapVault* ou * SnapMirror*.
+** Passez le curseur sur une section d’un graphique pour voir le nombre de machines virtuelles ou de magasins de données dans cette catégorie.  Dans la catégorie Réussi, la sauvegarde la plus récente est répertoriée pour chaque ressource.
+** Vous pouvez modifier la fenêtre temporelle en modifiant le fichier de configuration.  La valeur par défaut est de 7 jours. Pour plus d'informations, reportez-vous à link:scpivs44_customize_your_configuration.html["Personnalisez votre configuration"] .
+** Les compteurs internes sont mis à jour après chaque sauvegarde principale ou secondaire.  La mosaïque du tableau de bord est actualisée toutes les six heures.  Le temps de rafraîchissement ne peut pas être modifié.  Remarque : si vous utilisez une stratégie de protection de coffre-fort miroir, les compteurs du résumé de protection s'affichent dans le graphique récapitulatif SnapVault et non dans le graphique SnapMirror .
+
+
+
+
+ a| 
+Configuration
+ a| 
+Le nombre total de chaque type d'objet géré par le SnapCenter Plug-in for VMware vSphere.
+
+
+
+ a| 
+Stockage
+ a| 
+Le nombre total de snapshots, SnapVault et SnapMirror , générés et la quantité de stockage utilisée pour les snapshots principaux et secondaires. Le graphique linéaire trace séparément la consommation de stockage primaire et secondaire au jour le jour sur une période glissante de 90 jours.  Les informations de stockage sont mises à jour toutes les 24 heures à 1h08. Les économies de stockage correspondent au rapport entre la capacité logique (économies d'instantanés plus stockage consommé) et la capacité physique du stockage principal.  Le graphique à barres illustre les économies de stockage.
+
+Passez le curseur sur une ligne du graphique pour voir les résultats détaillés jour par jour.
+
+|===
+

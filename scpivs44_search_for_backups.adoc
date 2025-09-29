@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_search_for_backups.html 
+keywords:  
+summary: Vous pouvez rechercher et trouver une sauvegarde spécifique d’une machine virtuelle ou d’une banque de données à l’aide de l’assistant de restauration.  Après avoir localisé une sauvegarde, vous pouvez la restaurer. 
+---
+= Rechercher des sauvegardes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez rechercher et trouver une sauvegarde spécifique d’une machine virtuelle ou d’une banque de données à l’aide de l’assistant de restauration.  Après avoir localisé une sauvegarde, vous pouvez la restaurer.
+
+.Étapes
+. Dans l’interface graphique du client VMware vSphere, sélectionnez *Menu* dans la barre d’outils, puis effectuez l’une des opérations suivantes :
++
+|===
+| Pour afficher les sauvegardes de… | Procédez comme suit… 
+
+
+| machines virtuelles | Sélectionnez l'option de menu *Hôtes et clusters*, puis sélectionnez une machine virtuelle, puis sélectionnez l'onglet *Configurer*, puis sélectionnez *Sauvegardes* dans la section * SnapCenter Plug-in for VMware vSphere *. 
+
+
+| Magasins de données | Sélectionnez l'option de menu *Stockage*, puis sélectionnez une banque de données, puis sélectionnez l'onglet *Configurer*, puis sélectionnez *Sauvegardes* dans la section * SnapCenter Plug-in for VMware vSphere*. 
+|===
+. Dans le volet de navigation de gauche, développez le centre de données qui contient la machine virtuelle ou la banque de données.
+. Facultatif : cliquez avec le bouton droit sur une machine virtuelle ou une banque de données, puis sélectionnez * SnapCenter Plug-in for VMware vSphere* dans la liste déroulante, puis sélectionnez *Restaurer* dans la liste déroulante secondaire.
+. Dans l'assistant *Restauration*, saisissez un nom de recherche et sélectionnez *Rechercher*.
++
+Vous pouvez filtrer la liste de sauvegarde en sélectionnant l'icône de filtre et en sélectionnant une plage de dates et d'heures, en sélectionnant si vous souhaitez des sauvegardes contenant des snapshots VMware, si vous souhaitez des sauvegardes montées et l'emplacement. Sélectionnez *OK*.
+
+

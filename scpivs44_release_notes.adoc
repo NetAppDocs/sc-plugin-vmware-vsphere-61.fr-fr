@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_release_notes.html 
+keywords:  
+summary: Les notes de publication fournissent des informations importantes sur cette version de SnapCenter Plug-in for VMware vSphere, notamment les exigences de licence, les problèmes connus, les avertissements, les limitations et les mises à jour ou corrections de documentation. 
+---
+= Notes de SnapCenter Plug-in for VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Découvrez les fonctionnalités nouvelles et améliorées disponibles dans SnapCenter Plug-in for VMware vSphere 6.1.
+
+Pour plus de détails sur les problèmes connus, les limitations et les problèmes résolus, consultez https://library.netapp.com/ecm/ecm_download_file/ECMLP3337464["Notes de publication du SnapCenter Plug-in for VMware vSphere 6.1"^] . Vous devez vous connecter avec votre compte NetApp ou créer un compte pour accéder aux notes de publication.
+
+[NOTE]
+====
+Pour obtenir les dernières informations sur les versions prises en charge, reportez-vous à l'outil de matrice d'interopérabilité NetApp.(http://mysupport.netapp.com/matrix["IMT"^] ).
+
+====

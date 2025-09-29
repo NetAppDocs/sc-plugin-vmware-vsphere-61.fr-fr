@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_add_multiple_vms_and_datastores_to_a_resource_group.html 
+keywords:  
+summary: 'Vous pouvez ajouter plusieurs ressources à un groupe de ressources existant à l"aide de l"assistant Modifier le groupe de ressources du client SnapCenter VMware vSphere.' 
+---
+= Ajouter plusieurs machines virtuelles et banques de données à un groupe de ressources
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+À l’aide de l’assistant Modifier le groupe de ressources du client SnapCenter VMware vSphere, vous pouvez ajouter plusieurs ressources à un groupe de ressources existant.
+
+Un groupe de ressources peut contenir l’un des éléments suivants :
+
+* Toute combinaison de machines virtuelles traditionnelles et de magasins de données SAN et NAS (magasins de données vVol non pris en charge).
+* Un magasin de données FlexGroup (les machines virtuelles étendues ne sont pas prises en charge).
+* Un ou plusieurs magasins de données FlexVol (les machines virtuelles étendues sont prises en charge).
+* Une ou plusieurs machines virtuelles vVol.
+* Toutes les machines virtuelles vVol avec une balise vSphere spécifiée.
+* Toutes les machines virtuelles vVol dans un dossier spécifié.
+
+
+
+NOTE: Les machines virtuelles vVol qui s'étendent sur plusieurs banques de données vVol ne sont pas prises en charge, car SnapCenter sauvegarde uniquement les vVols dans la banque de données vVol principale sélectionnée.
+
+.Étapes
+. Dans le volet de navigation gauche du plug-in SCV, sélectionnez *Groupes de ressources*, puis sélectionnez un groupe de ressources, puis sélectionnezimage:scpivs44_image39.png["icône d'édition"] *Modifier le groupe de ressources* pour démarrer l'assistant.
+. Sur la page *Ressource*, procédez comme suit :
++
+.. Dans le champ Magasins de données, accédez aux machines virtuelles ou aux magasins de données que vous souhaitez ajouter.
+.. Dans la liste Entités disponibles, sélectionnez une ou plusieurs machines virtuelles ou banques de données que vous souhaitez ajouter au groupe de ressources, puis sélectionnez *>* pour déplacer votre sélection vers la liste Entités sélectionnées.  Sélectionnez *>>* pour déplacer toutes les entités disponibles.
++
+Par défaut, la liste des entités disponibles affiche l’objet Centre de données.  Vous pouvez sélectionner un magasin de données pour afficher les machines virtuelles qu'il contient et les ajouter au groupe de ressources.
+
++
+Lorsque vous sélectionnez *Suivant*, le système vérifie d'abord que SnapCenter gère et est compatible avec le stockage sur lequel se trouvent les machines virtuelles ou les banques de données sélectionnées.  Si le message `Some entities are not SnapCenter compatible` s'affiche, cela signifie qu'une machine virtuelle ou une banque de données sélectionnée n'est pas compatible avec SnapCenter. Consultez link:scpivs44_create_resource_groups_for_vms_and_datastores.html#manage-compatibility-check-failures["Gérer les échecs de vérification de compatibilité"] pour plus d'informations.
+
+
+
+. Répétez l’étape 2 pour chaque machine virtuelle ou banque de données que vous souhaitez ajouter.
+. Sélectionnez *Suivant* jusqu'à atteindre la page *Résumé*, puis vérifiez le résumé et sélectionnez *Terminer*.
+

@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_monitor_jobs.html 
+keywords:  
+summary: Après avoir effectué une opération de protection des données à l’aide du client VMware vSphere, vous pouvez surveiller l’état du travail à partir de l’onglet Moniteur de travail dans le tableau de bord et afficher les détails du travail. 
+---
+= Surveiller les emplois
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Après avoir effectué une opération de protection des données à l’aide du client VMware vSphere, vous pouvez surveiller l’état du travail à partir de l’onglet Moniteur de travail dans le tableau de bord et afficher les détails du travail.
+
+.Étapes
+. À partir de la page de raccourcis du client vCenter, sélectionnez SnapCenter Plug-in for VMware vSphere (SCV).
+. Dans le volet de navigation de gauche de SCV, sélectionnez *Tableau de bord*.
+. Lorsque deux ou plusieurs vCenters sont configurés en mode lié, sélectionnez l'instance du plug-in SCV et sélectionnez l'onglet *Job Monitor*.  L'onglet Moniteur de tâches répertorie chaque tâche ainsi que son état, son heure de début et son heure de fin.  Si les noms des tâches sont longs, vous devrez peut-être faire défiler vers la droite pour afficher les heures de début et de fin.  L'affichage est rafraîchi toutes les 30 secondes.
++
+** Sélectionnez l’icône d’actualisation dans la barre d’outils pour actualiser l’affichage à la demande.
+** Sélectionnez l'icône de filtre pour choisir la plage horaire, le type, la balise et le statut des tâches que vous souhaitez afficher.  Le filtre est sensible à la casse.
+** Sélectionnez l'icône d'actualisation dans la fenêtre Détails du travail pour actualiser l'affichage pendant que le travail est en cours d'exécution.
+
+
+
+
+Si le tableau de bord n'affiche pas les informations sur les tâches, reportez-vous à https://kb.netapp.com/Advice_and_Troubleshooting/Data_Protection_and_Security/SnapCenter/SnapCenter_vSphere_web_client_dashboard_does_not_display_jobs["Article de la base de connaissances : Le tableau de bord du client SnapCenter vSphere n'affiche pas les tâches"^] .

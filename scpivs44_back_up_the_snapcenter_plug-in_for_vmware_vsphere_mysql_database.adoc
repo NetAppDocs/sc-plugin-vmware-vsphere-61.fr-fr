@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_back_up_the_snapcenter_plug-in_for_vmware_vsphere_mysql_database.html 
+keywords:  
+summary: 'Le SnapCenter Plug-in for VMware vSphere inclut une base de données MySQL (également appelée base de données NSM) qui contient les métadonnées de toutes les tâches effectuées par le plug-in. Il est conseillé de sauvegarder régulièrement ce référentiel.' 
+---
+= Sauvegarder la base de données MySQL du SnapCenter Plug-in for VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Le SnapCenter Plug-in for VMware vSphere inclut une base de données MySQL (également appelée base de données NSM) qui contient les métadonnées de toutes les tâches effectuées par le plug-in. Il est conseillé de sauvegarder régulièrement ce référentiel.
+
+Vous devez également sauvegarder le référentiel avant d’effectuer des migrations ou des mises à niveau.
+
+.Avant de commencer
+Ne démarrez pas une tâche de sauvegarde de la base de données MySQL lorsqu'une tâche de sauvegarde à la demande est déjà en cours d'exécution.
+
+.Étapes
+. À partir du client VMware vSphere, sélectionnez la machine virtuelle sur laquelle se trouve le SnapCenter Plug-in for VMware vSphere .
+. Dans l'onglet *Résumé* de l'appliance virtuelle, sélectionnez *Lancer la console distante* *ou Lancer la console Web* pour ouvrir une fenêtre de console de maintenance.
++
+image:scpivs44_image21.png["fenêtre de la console de maintenance"]
+
+. Dans le menu principal, entrez l'option *1) Configuration de l'application.*
+. Dans le menu de configuration de l'application, entrez l'option *6) Sauvegarde et restauration MySQL.*
+. Dans le menu de configuration de sauvegarde et de restauration MySQL, entrez l'option *1) Configurer la sauvegarde MySQL*.
+. À l'invite, entrez l'emplacement de sauvegarde du référentiel, le nombre de sauvegardes à conserver et l'heure à laquelle la sauvegarde doit démarrer.
++
+Toutes les entrées sont enregistrées lorsque vous les saisissez.  Lorsque le numéro de rétention de sauvegarde est atteint, les sauvegardes plus anciennes sont supprimées lorsque de nouvelles sauvegardes sont effectuées.
+
++
+
+TIP: Les sauvegardes du référentiel sont nommées « sauvegarde-<date> ».  Étant donné que la fonction de restauration du référentiel recherche le préfixe « sauvegarde », vous ne devez pas le modifier.
+
+

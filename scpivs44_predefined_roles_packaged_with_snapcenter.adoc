@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_predefined_roles_packaged_with_snapcenter.html 
+keywords:  
+summary: 'Pour simplifier l"utilisation de vCenter Server RBAC, le SnapCenter Plug-in for VMware vSphere fournit un ensemble de rôles prédéfinis qui permettent aux utilisateurs d"effectuer des tâches SnapCenter .  Il existe également un rôle en lecture seule qui permet aux utilisateurs d"afficher les informations de SnapCenter , mais sans effectuer de tâches.' 
+---
+= Rôles prédéfinis fournis avec le SnapCenter Plug-in for VMware vSphere
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pour simplifier l'utilisation de vCenter Server RBAC, le SnapCenter Plug-in for VMware vSphere fournit un ensemble de rôles prédéfinis qui permettent aux utilisateurs d'effectuer des tâches SnapCenter .  Il existe également un rôle en lecture seule qui permet aux utilisateurs d'afficher les informations de SnapCenter , mais sans effectuer de tâches.
+
+Les rôles prédéfinis disposent à la fois des privilèges spécifiques à SnapCenter requis et des privilèges natifs de vCenter Server pour garantir que les tâches sont exécutées correctement.  De plus, les rôles sont configurés pour disposer des privilèges nécessaires sur toutes les versions prises en charge de vCenter Server.
+
+En tant qu'administrateur, vous pouvez attribuer ces rôles aux utilisateurs appropriés.
+
+Le SnapCenter Plug-in for VMware vSphere rétablit ces rôles à leurs valeurs par défaut (ensemble initial de privilèges) chaque fois que vous redémarrez le service client Web vCenter ou modifiez votre installation.  Si vous mettez à niveau le SnapCenter Plug-in for VMware vSphere, les rôles prédéfinis sont automatiquement mis à niveau pour fonctionner avec cette version du plug-in.
+
+Vous pouvez voir les rôles prédéfinis dans l'interface graphique utilisateur de vCenter en sélectionnant *Menu > Administration > Rôles* comme indiqué dans le tableau suivant.
+
+|===
+| Rôle | Description 
+
+
+| Administrateur SCV | Fournit tous les privilèges natifs spécifiques à vCenter Server et SnapCenter nécessaires pour effectuer toutes les tâches du SnapCenter Plug-in for VMware vSphere .  À partir de la version SCV 6.1, un nouveau privilège permettant de créer une protection secondaire est ajouté à ce rôle. 
+
+
+| SCV de secours | Fournit tous les privilèges natifs spécifiques à vCenter Server et SnapCenter nécessaires à la sauvegarde des objets vSphere (machines virtuelles et banques de données).  L'utilisateur a également accès au privilège de configuration.  L'utilisateur ne peut pas restaurer les sauvegardes.  À partir de la version SCV 6.1, un nouveau privilège permettant de créer une protection secondaire est ajouté à ce rôle. 
+
+
+| Restauration du fichier invité SCV | Fournit tous les privilèges natifs spécifiques à vCenter Server et SnapCenter nécessaires pour restaurer les fichiers et dossiers invités.  L'utilisateur ne peut pas restaurer les machines virtuelles ou les VMDK. 
+
+
+| Restauration SCV | Fournit tous les privilèges natifs spécifiques à vCenter Server et SnapCenter nécessaires pour restaurer les objets vSphere qui ont été sauvegardés à l'aide du SnapCenter Plug-in for VMware vSphere et pour restaurer les fichiers et dossiers invités.  L'utilisateur a également accès au privilège de configuration.  L'utilisateur ne peut pas sauvegarder les objets vSphere. 
+
+
+| Vue SCV | Fournit un accès en lecture seule à toutes les sauvegardes, groupes de ressources et stratégies du SnapCenter Plug-in for VMware vSphere . 
+|===

@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_minimum_vcenter_privileges_required.html 
+keywords:  
+summary: Avant de commencer le déploiement de SnapCenter Plug-in for VMware vSphere, vous devez vous assurer que vous disposez des privilèges vCenter minimaux requis. 
+---
+= Privilèges vCenter minimaux requis
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Avant de commencer le déploiement de SnapCenter Plug-in for VMware vSphere, vous devez vous assurer que vous disposez des privilèges vCenter minimaux requis.
+
+
+
+== Privilèges requis pour le rôle d'administrateur vCenter
+
+Banque de données. Allouer de l'espace Banque de données. Parcourir Banque de données. Supprimer Banque de données. Gestion de fichiers Banque de données. Déplacer Banque de données. Renommer Extension. Enregistrer Extension. Désenregistrer Extension. Mettre à jour Hôte. Configuration. Configuration avancée Hôte. Configuration. Ressources Hôte. Configuration. Paramètres Hôte. Configuration. Stockage Hôte. Local. Créer une machine virtuelle Hôte. Local. Supprimer une machine virtuelle Hôte. Local. Reconfiguration de la machine virtuelle Réseau. Affecter une ressource. Appliquer une recommandation Ressource. Affecter une machine virtuelle au pool Ressource. Migration à froid Ressource. Migration à chaud Ressource. Interroger la machine virtuelle Système. Anonyme Système. Lire Système. Afficher Tâche. Créer Tâche. Mettre à jour Machine virtuelle. Configuration. Ajouter un disque existant Machine virtuelle. Configuration. Ajouter un nouveau disque Machine virtuelle. Configuration. Configuration avancée Machine virtuelle. Configuration. Recharger depuis le chemin Machine virtuelle. Configuration. Retirer le disque Machine virtuelle. Configuration. Ressource VirtualMachine.GuestOperations.Exécuter VirtualMachine.GuestOperations.Modifier VirtualMachine.GuestOperations.Requête VirtualMachine.Interagir.Mise hors tension VirtualMachine.Interagir.Mise sous tension VirtualMachine.Inventaire.Créer VirtualMachine.Inventaire.Créer à partir d'un existant VirtualMachine.Inventaire.Supprimer VirtualMachine.Inventaire.Déplacer VirtualMachine.Inventaire.Enregistrer VirtualMachine.Inventaire.Annuler l'enregistrement VirtualMachine.État.Créer un instantané VirtualMachine.État.Supprimer un instantané VirtualMachine.État.Revenir à l'instantané
+
+
+
+== Privilèges requis spécifiques au plug-in SnapCenter pour VMware vCenter
+
+|===
+
+
+| * Privileges* | *Étiquette* 
+
+
+| netappSCV.Guest.RestoreFile | Restauration de fichiers invités 
+
+
+| netappSCV.Recovery.MountUnMount | Monter/Démonter 
+
+
+| netappSCV.Backup.DeleteBackupJob | Supprimer le groupe de ressources/la sauvegarde 
+
+
+| netappSCV.Configure.ConfigureStorageSystems.Supprimer | Supprimer les systèmes de stockage 
+
+
+| netappSCV.View | View 
+
+
+| netappSCV.Recovery.RecoverVM | Récupérer la machine virtuelle 
+
+
+| netappSCV.Configure.ConfigureStorageSystems.AddUpdate | Ajouter/modifier des systèmes de stockage 
+
+
+| netappSCV.Sauvegarde.SauvegardeNow | Sauvegarder maintenant 
+
+
+| netappSCV.Guest.Configure | Configuration des invités 
+
+
+| netappSCV.Configure.ConfigureSnapCenterServer | Configurer le serveur SnapCenter 
+
+
+| netappSCV.Backup.Sauvegarde planifiée | Créer un groupe de ressources 
+|===

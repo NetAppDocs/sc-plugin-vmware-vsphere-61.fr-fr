@@ -1,0 +1,25 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_unregister_plugin_from_vcenter.html 
+keywords:  
+summary: 'Si vous arrêtez le service SnapCenter Plug-in for VMware vSphere dans un vCenter en mode lié, les groupes de ressources ne sont pas disponibles dans tous les vCenters liés, même lorsque le service SnapCenter Plug-in for VMware vSphere est en cours d"exécution dans les autres vCenters liés.  Vous devez désinscrire manuellement le SnapCenter Plug-in for VMware vSphere .' 
+---
+= Désenregistrer le SnapCenter Plug-in for VMware vSphere de vCenter
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si vous arrêtez le service SnapCenter Plug-in for VMware vSphere dans un vCenter en mode lié, les groupes de ressources ne sont pas disponibles dans tous les vCenters liés, même lorsque le service SnapCenter Plug-in for VMware vSphere est en cours d'exécution dans les autres vCenters liés.
+
+Vous devez désinscrire manuellement le SnapCenter Plug-in for VMware vSphere .
+
+.Étapes
+. Sur le vCenter lié sur lequel le service SnapCenter Plug-in for VMware vSphere est arrêté, accédez au gestionnaire de référence d’objet géré (MOB).
+. Dans l'option Propriétés, sélectionnez *contenu* dans la colonne Valeur, puis dans l'écran suivant, sélectionnez *ExtensionManager* dans la colonne Valeur pour afficher une liste des extensions enregistrées.
+. Désenregistrer les extensions `com.netapp.scv.client` et `com.netapp.aegis` .
+

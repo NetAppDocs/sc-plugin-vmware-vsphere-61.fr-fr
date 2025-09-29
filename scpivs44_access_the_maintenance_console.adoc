@@ -1,0 +1,63 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_access_the_maintenance_console.html 
+keywords:  
+summary: 'Vous pouvez gérer vos configurations d"application, de système et de réseau à l"aide de la console de maintenance de SnapCenter Plug-in for VMware vSphere.  Vous pouvez modifier votre mot de passe administrateur, votre mot de passe de maintenance, générer des bundles d"assistance et démarrer des diagnostics à distance.' 
+---
+= Accéder à la console de maintenance
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez gérer vos configurations d'application, de système et de réseau à l'aide de la console de maintenance de SnapCenter Plug-in for VMware vSphere.  Vous pouvez modifier votre mot de passe administrateur, votre mot de passe de maintenance, générer des bundles d'assistance et démarrer des diagnostics à distance.
+
+.Avant de commencer
+Avant d'arrêter et de redémarrer le service SnapCenter Plug-in for VMware vSphere , vous devez suspendre toutes les planifications.
+
+.À propos de cette tâche
+* Dans SnapCenter Plug-in for VMware vSphere 4.6P1, vous devez spécifier un mot de passe lors de la première installation de SnapCenter Plug-in for VMware vSphere.  Si vous effectuez une mise à niveau de la version 4.6 ou antérieure vers la version 4.6P1 ou ultérieure, le mot de passe par défaut antérieur est accepté.
+* Vous devez définir un mot de passe pour l’utilisateur « diag » lors de l’activation des diagnostics à distance.
++
+Pour obtenir l'autorisation de l'utilisateur root pour exécuter la commande, utilisez la commande sudo <commande>.
+
+
+
+.Étapes
+. À partir du client VMware vSphere, sélectionnez la machine virtuelle sur laquelle se trouve le SnapCenter Plug-in for VMware vSphere .
+. Dans l’onglet *Résumé* de l’appliance virtuelle, sélectionnez *Lancer la console distante* pour ouvrir une fenêtre de console de maintenance.
++
+Connectez-vous en utilisant le nom d'utilisateur par défaut de la console de maintenance `maint` et le mot de passe que vous avez défini au moment de l'installation.
+
++
+image:scpivs44_image11.png["Fenêtre de la console de maintenance"]
+
+. Vous pouvez effectuer les opérations suivantes :
++
+** Option 1 : Configuration de l'application
++
+Afficher un résumé du SnapCenter Plug-in for VMware vSphere Démarrer ou arrêter le service SnapCenter Plug-in for VMware vSphere Modifier le nom d'utilisateur ou le mot de passe de connexion pour SnapCenter Plug-in for VMware vSphere Modifier le mot de passe MySQL Sauvegarder et restaurer MySQL, configurer et répertorier les sauvegardes MySQL
+
+** Option 2 : Configuration du système
++
+Redémarrer la machine virtuelle Arrêter la machine virtuelle Modifier le mot de passe de l'utilisateur « maint » Modifier le fuseau horaire Modifier le serveur NTP Activer l'accès SSH Augmenter la taille du disque de prison (/jail) Mettre à niveau Installer VMware Tools Générer un jeton MFA
+
++
+
+NOTE: MFA est toujours activé, vous ne pouvez pas désactiver MFA.
+
+** Option 3 : Configuration du réseau
++
+Afficher ou modifier les paramètres d'adresse IP Afficher ou modifier les paramètres de recherche de nom de domaine Afficher ou modifier les itinéraires statiques Valider les modifications Envoyer une requête ping à un hôte
+
+** Option 4 : Assistance et diagnostic
++
+Générer un bundle de support Accéder au shell de diagnostic Activer l'accès au diagnostic à distance Générer un bundle de vidage de mémoire
+
+
+
+

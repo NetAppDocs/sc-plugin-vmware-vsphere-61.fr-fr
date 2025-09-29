@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_detach_a_virtual_disk.html 
+keywords:  
+summary: Après avoir connecté un disque virtuel pour restaurer des fichiers individuels, vous pouvez détacher le disque virtuel de la machine virtuelle parente. 
+---
+= Détacher un disque virtuel
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Après avoir connecté un disque virtuel pour restaurer des fichiers individuels, vous pouvez détacher le disque virtuel de la machine virtuelle parente.
+
+.Étapes
+. Dans l’interface graphique du client VMware vSphere, sélectionnez *Menu* dans la barre d’outils, puis sélectionnez *VM et modèles* dans la liste déroulante.
+. Dans le volet de navigation de gauche, sélectionnez une machine virtuelle.
+. Dans le volet de navigation de gauche, cliquez avec le bouton droit sur la machine virtuelle, puis sélectionnez * SnapCenter Plug-in for VMware vSphere* dans la liste déroulante, puis sélectionnez * Détacher le disque virtuel * dans la liste déroulante secondaire.
+. Sur l'écran *Détacher le disque virtuel*, sélectionnez un ou plusieurs disques que vous souhaitez détacher, puis cochez la case *Détacher le(s) disque(s) sélectionné(s)* et sélectionnez *DÉTACHER*.
++
+
+IMPORTANT: Assurez-vous de sélectionner le bon disque virtuel.  La sélection du mauvais disque peut affecter le travail de production.
+
+. Facultatif : Surveillez la progression de l'opération dans la section *Tâches récentes*.
++
+Actualisez l'écran pour afficher les informations mises à jour.
+
+. Vérifiez que le disque virtuel est détaché en procédant comme suit :
++
+.. Sélectionnez *Menu* dans la barre d’outils, puis sélectionnez *VM et modèles* dans la liste déroulante.
+.. Dans le volet de navigation de gauche, cliquez avec le bouton droit sur une machine virtuelle, puis sélectionnez *Modifier les paramètres* dans la liste déroulante.
+.. Dans la fenêtre *Modifier les paramètres*, développez la liste de chaque disque dur pour voir la liste des fichiers du disque.
++
+La page *Modifier les paramètres* répertorie les disques sur la machine virtuelle.  Vous pouvez développer les détails de chaque disque dur pour voir la liste des disques virtuels connectés.
+
+
+
+

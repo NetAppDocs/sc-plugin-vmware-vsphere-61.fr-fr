@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_create_backup_policies.html 
+keywords:  
+summary:  
+---
+= Créer des politiques de sauvegarde
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Suivez les instructions ci-dessous pour créer des politiques de sauvegarde
+
+. Dans le volet de navigation de gauche du plug-in SCV, sélectionnez *Politiques*, puis sélectionnez *Nouvelle politique*.
+. Sur la page *Nouvelle politique de sauvegarde*, saisissez les informations de configuration de la politique, puis sélectionnez *Ajouter*.
+

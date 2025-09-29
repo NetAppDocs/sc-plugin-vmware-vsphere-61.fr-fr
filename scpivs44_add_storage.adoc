@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_add_storage.html 
+keywords:  
+summary:  
+---
+= Ajouter du stockage
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Suivez les étapes de cette section pour ajouter du stockage.
+
+. Dans le volet de navigation de gauche du plug-in SCV, sélectionnez *Systèmes de stockage*, puis sélectionnez l'option *Ajouter*.
+. Dans la boîte de dialogue Ajouter un système de stockage, entrez les informations de base sur le SVM ou le cluster, puis sélectionnez *Ajouter*.
+

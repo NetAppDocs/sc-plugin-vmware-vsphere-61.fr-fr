@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_add_a_single_vm_or_datastore_to_a_resource_group.html 
+keywords:  
+summary: Vous pouvez rapidement ajouter une seule machine virtuelle ou banque de données à n’importe quel groupe de ressources existant géré par SnapCenter Plug-in for VMware vSphere. 
+---
+= Ajouter une seule machine virtuelle ou un magasin de données à un groupe de ressources
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez rapidement ajouter une seule machine virtuelle ou banque de données à n’importe quel groupe de ressources existant géré par SnapCenter Plug-in for VMware vSphere.
+
+.À propos de cette tâche
+Vous pouvez ajouter des magasins de données SAN et NAS, mais pas des magasins de données VSAN ou VVOL.
+
+.Étapes
+. Dans l’interface graphique du client vSphere, sélectionnez *Menu* dans la barre d’outils et accédez à la machine virtuelle ou à la banque de données que vous souhaitez ajouter.
+. Dans le volet de navigation de gauche, cliquez avec le bouton droit sur la machine virtuelle ou la banque de données, sélectionnez * SnapCenter Plug-in for VMware vSphere* > *Ajouter au groupe de ressources* dans la liste déroulante secondaire.
++
+Le système vérifie d'abord que SnapCenter gère et est compatible avec le système de stockage sur lequel se trouve la machine virtuelle sélectionnée, puis affiche la page *Ajouter au groupe de ressources*.  Si le message `SnapCenter Compatibility Error` s'affiche, alors la machine virtuelle sélectionnée n'est pas compatible avec SnapCenter et vous devez d'abord ajouter la machine virtuelle de stockage appropriée à SnapCenter.
+
+. Dans la page *Ajouter au groupe de ressources*, sélectionnez un groupe de ressources, puis sélectionnez *OK*.
++
+Lorsque vous sélectionnez *OK*, le système vérifie d'abord que SnapCenter gère et est compatible avec le stockage sur lequel se trouvent les machines virtuelles ou les banques de données sélectionnées.
+
++
+Si le message `Selected <resource-name> is not SnapCenter compatible` s'affiche, cela signifie qu'une machine virtuelle ou une banque de données sélectionnée n'est pas compatible avec SnapCenter. Consultez link:scpivs44_create_resource_groups_for_vms_and_datastores.html#manage-compatibility-check-failures["Gérer les échecs de vérification de compatibilité"] pour plus d'informations.
+
+

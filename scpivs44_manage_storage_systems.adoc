@@ -1,0 +1,58 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_manage_storage_systems.html 
+keywords:  
+summary: Avant de pouvoir sauvegarder ou restaurer des machines virtuelles ou des banques de données à l’aide du client VMware vSphere, vous devez ajouter le stockage. 
+---
+= Gérer les systèmes de stockage
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Avant de pouvoir sauvegarder ou restaurer des machines virtuelles ou des banques de données à l’aide du client VMware vSphere, vous devez ajouter le stockage.
+
+
+
+== Modifier les machines virtuelles de stockage
+
+Vous pouvez utiliser le client VMware vSphere pour modifier les configurations des clusters et des machines virtuelles de stockage enregistrées dans SnapCenter Plug-in for VMware vSphere et utilisées pour les opérations de protection des données des machines virtuelles.
+
+Si vous modifiez une machine virtuelle de stockage qui a été ajoutée automatiquement dans le cadre d'un cluster (parfois appelée machine virtuelle de stockage implicite), cette machine virtuelle de stockage devient une machine virtuelle de stockage explicite et peut être supprimée séparément sans modifier le reste des machines virtuelles de stockage de ce cluster.  Sur la page Systèmes de stockage, le nom d'utilisateur s'affiche comme N/A lorsque la méthode d'authentification s'effectue via le certificat ; les noms d'utilisateur s'affichent uniquement pour les machines virtuelles de stockage explicites dans la liste des clusters et ont l'indicateur ExplicitSVM défini sur true.  Toutes les machines virtuelles de stockage sont toujours répertoriées sous le cluster associé.
+
+
+IMPORTANT: Si vous avez ajouté des machines virtuelles de stockage pour des opérations de protection des données basées sur des applications à l'aide de l'interface utilisateur graphique SnapCenter , vous devez utiliser la même interface graphique pour modifier ces machines virtuelles de stockage.
+
+.Étapes
+. Dans le volet de navigation gauche du plug-in SCV, sélectionnez *Systèmes de stockage*.
+. Sur la page *Systèmes de stockage*, sélectionnez la machine virtuelle de stockage à modifier, puis sélectionnez *Modifier*.
+. Dans la fenêtre *Modifier le système de stockage*, saisissez les nouvelles valeurs, puis sélectionnez *Mettre à jour* pour appliquer les modifications.
+
+
+
+
+== Supprimer les machines virtuelles de stockage
+
+Vous pouvez utiliser le client VMware vSphere pour supprimer des machines virtuelles de stockage de l’inventaire dans vCenter.
+
+
+NOTE: Si vous avez ajouté des machines virtuelles de stockage pour des opérations de protection des données basées sur des applications à l'aide de l'interface utilisateur graphique SnapCenter , vous devez utiliser la même interface graphique pour modifier ces machines virtuelles de stockage.
+
+.Avant de commencer
+Vous devez démonter tous les magasins de données de la machine virtuelle de stockage avant de pouvoir supprimer la machine virtuelle de stockage.
+
+.À propos de cette tâche
+Si un groupe de ressources possède des sauvegardes qui résident sur une machine virtuelle de stockage que vous supprimez, les sauvegardes ultérieures pour ce groupe de ressources échouent.
+
+.Étapes
+. Dans le volet de navigation gauche du plug-in SCV, sélectionnez *Systèmes de stockage*.
+. Sur la page *Systèmes de stockage*, sélectionnez la machine virtuelle de stockage à supprimer, puis sélectionnez *Supprimer*.
+. Dans la boîte de confirmation *Supprimer le système de stockage*, cochez la case *Supprimer le(s) système(s) de stockage*, puis sélectionnez *Oui* pour confirmer.  *Remarque :* seuls les hôtes ESXi 7.0U1 et versions ultérieures sont pris en charge.
++
+link:scpivs44_restart_the_vmware_vsphere_web_client_service.html["Redémarrez le service client VMware vSphere"] .
+
+

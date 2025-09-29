@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_modify_the_time_zones.html 
+keywords:  
+summary: 'Lorsque vous configurez une planification de sauvegarde pour un groupe de ressources SnapCenter Plug-in for VMware vSphere , la planification est automatiquement définie pour le fuseau horaire dans lequel SnapCenter Plug-in for VMware vSphere est déployé. Vous pouvez modifier ce fuseau horaire à l"aide de l"interface graphique de gestion ou de la console de maintenance du SnapCenter Plug-in for VMware vSphere .' 
+---
+= Modifier les fuseaux horaires pour les sauvegardes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:firstname: [.lead]
+:author: [.lead]
+:authorinitials: [
+:authors: [.lead]
+:revnumber: 
+:revdate: the schedule is automatically set for the time zone in which SnapCenter Plug-in for VMware vSphere is deployed. You can modify that time zone by using the SnapCenter Plug-in for VMware vSphere management GUI or maintenance console.
+
+
+.Avant de commencer
+Vous devez connaître l'adresse IP et les informations de connexion pour l'interface graphique de gestion du SnapCenter Plug-in for VMware vSphere . Vous devez également noter le jeton MFA généré à partir de la console de maintenance.
+
+* L'adresse IP était affichée lors du déploiement du SnapCenter Plug-in for VMware vSphere .
+* Utilisez les informations de connexion fournies lors du déploiement du SnapCenter Plug-in for VMware vSphere ou telles que modifiées ultérieurement.
+* Générez un jeton MFA à 6 chiffres à l’aide des options de configuration système de la console de maintenance.
+
+
+.Étapes
+. Connectez-vous à l'interface graphique de gestion du SnapCenter Plug-in for VMware vSphere .
++
+Utiliser le format `\https://<appliance-IP-address>:8080`
+
+. Sélectionnez l’icône Paramètres dans la barre d’outils supérieure.
++
+image:scpivs44_image28.jpg["SnapCenter Plug-in for VMware vSphere"]
+
+. Sur la page *Paramètres*, dans la section *Date et heure*, sélectionnez *Modifier*.
+. Sélectionnez le nouveau fuseau horaire et sélectionnez *Enregistrer*.
++
+Le nouveau fuseau horaire sera utilisé pour toutes les sauvegardes effectuées par le SnapCenter Plug-in for VMware vSphere.
+
+

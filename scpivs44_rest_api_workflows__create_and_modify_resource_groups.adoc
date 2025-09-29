@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_rest_api_workflows__create_and_modify_resource_groups.html 
+keywords:  
+summary: 'Pour effectuer des opérations de création et de modification de groupes de ressources à l"aide du SnapCenter Plug-in for VMware vSphere , vous devez suivre la séquence prescrite d"appels d"API REST.' 
+---
+= Workflows de l'API REST pour créer et modifier des groupes de ressources
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pour effectuer des opérations de création et de modification de groupes de ressources à l'aide du SnapCenter Plug-in for VMware vSphere , vous devez suivre la séquence prescrite d'appels d'API REST.
+
+Pour chaque API REST, ajoutez `\https://<server>:<port>` à l'avant de l'API REST pour former un point de terminaison complet.
+
+Pour créer des groupes de ressources, suivez ce flux de travail :
+
+|===
+| Étape | API REST | Commentaires 
+
+
+| 1 | `/4.1/policies` | `Get Policies`obtient la liste des politiques client VMware vSphere.  Notez le *policyId* que vous souhaitez utiliser lors de la création du groupe de ressources et la *fréquence* de la politique.  Si aucune politique n'est répertoriée, utilisez le `Create Policy` API REST pour créer une nouvelle politique. 
+
+
+| 2 | `/4.1/resource-groups` | `Create a Resource Group`crée un groupe de ressources avec la politique spécifiée.  Transmettez le *policyId* de l’étape 1 et saisissez les détails de la *fréquence* de la politique en plus de tous les autres attributs requis.  Vous pouvez activer la protection secondaire à l’aide de cette API REST. 
+|===
+Pour modifier les groupes de ressources, suivez ce flux de travail :
+
+|===
+| Étape | API REST | Commentaires 
+
+
+| 1 | `/4.1/resource-groups` | `Get List of Resource Groups`obtient la liste des groupes de ressources client VMware vSphere.  Notez le *resourceGroupId* que vous souhaitez modifier. 
+
+
+| 2 | `/4.1/policies` | Si vous souhaitez modifier les politiques attribuées, `Get Policies` obtient la liste des politiques client VMware vSphere.  Notez le *policyId* que vous souhaitez utiliser lors de la modification du groupe de ressources et la *fréquence* de la politique. 
+
+
+| 3 | `/4.1/resource-groups/
+{resouceGroupId}` | `Update a Resource Group`modifie le groupe de ressources spécifié.  Transmettez le *resourceGroupId* de l’étape 1.  Vous pouvez également transmettre le *policyId* de l'étape 2 et saisir les détails de la *fréquence* en plus de tous les autres attributs requis. 
+|===

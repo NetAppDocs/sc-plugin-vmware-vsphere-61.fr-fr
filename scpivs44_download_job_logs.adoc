@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_download_job_logs.html 
+keywords:  
+summary: Vous pouvez télécharger les journaux des tâches à partir de l’onglet Moniteur des tâches sur le tableau de bord du client SnapCenter VMware vSphere. 
+---
+= Télécharger les journaux de travail
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez télécharger les journaux des tâches à partir de l’onglet Moniteur des tâches sur le tableau de bord du client SnapCenter VMware vSphere.
+
+Si vous rencontrez un comportement inattendu lors de l’utilisation du client VMware vSphere, vous pouvez utiliser les fichiers journaux pour identifier la cause et résoudre le problème.
+
+
+NOTE: La valeur par défaut pour la conservation des journaux de travail est de 30 jours ; la valeur par défaut pour la conservation des travaux est de 90 jours.  Les journaux de travail et les travaux plus anciens que la durée de conservation configurée sont purgés toutes les six heures.  Vous pouvez utiliser la configuration `jobs/cleanup` API REST pour modifier la durée de conservation des tâches et des journaux de tâches.  Vous ne pouvez pas modifier le calendrier de purge.
+
+.Étapes
+. À partir de la page de raccourcis du client vCenter, sélectionnez SnapCenter Plug-in for VMware vSphere (SCV).
+. Dans le volet de navigation de gauche de SCV, sélectionnez *Tableau de bord* > *Moniteur de tâches*.
+. Sélectionnez l’icône de téléchargement dans la barre de titre de Job Monitor.
++
+Vous devrez peut-être faire défiler vers la droite pour voir l'icône.
+
++
+Vous pouvez également double-cliquer sur une tâche pour accéder à la fenêtre Détails de la tâche, puis sélectionner *Télécharger les journaux des tâches*.
+
+
+
+.Résultat
+Les journaux des tâches se trouvent sur l’hôte de la machine virtuelle Linux sur lequel le SnapCenter Plug-in for VMware vSphere est déployé.  L'emplacement par défaut du journal des tâches est `/var/log/netapp` .
+
+Si vous avez essayé de télécharger les journaux de tâches mais que le fichier journal nommé dans le message d'erreur a été supprimé, vous pouvez rencontrer l'erreur suivante : `HTTP ERROR 500 Problem accessing /export-scv-logs` .  Pour corriger cette erreur, vérifiez l’état d’accès au fichier et les autorisations pour le fichier nommé dans le message d’erreur et corrigez le problème d’accès.

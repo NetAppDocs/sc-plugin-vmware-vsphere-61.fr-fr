@@ -1,0 +1,65 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_rest_api_workflows__attach_and_detach_vmdks.html 
+keywords:  
+summary: 'Pour effectuer des opérations d"attachement et de détachement pour les VMDK à l"aide du SnapCenter Plug-in for VMware vSphere , vous devez suivre la séquence prescrite d"appels d"API REST.' 
+---
+= Workflows de l'API REST pour attacher et détacher les VMDK
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pour effectuer des opérations d'attachement et de détachement pour les VMDK à l'aide du SnapCenter Plug-in for VMware vSphere , vous devez suivre la séquence prescrite d'appels d'API REST.
+
+Pour chaque API REST, ajoutez `\https://<server>:<port>` à l'avant de l'API REST pour former un point de terminaison complet.
+
+
+
+== Pour attacher des VMDK, suivez ce flux de travail :
+
+|===
+| Étape | API REST | Commentaires 
+
+
+| 1 | Aller à `\http://<vCenter-IP>/mob` | Recherchez la machine virtuelle moref à partir de l’URL des objets gérés VMware.  Notez le *moref* pour la VM à laquelle vous souhaitez attacher un VMDK. 
+
+
+| 2 | `/4.1/vm/{moref}/backups` | `Get VM Backups`obtient une liste de sauvegardes pour la VM spécifiée.  Passez le *moref* de l’étape 1.  Notez le *backupId* de la sauvegarde que vous souhaitez restaurer. 
+
+
+| 3 | `/4.1/vm/{moref}/backups/
+{backupId}/vmdklocations` | `Get VMDK Locations`obtient une liste de VMDK pour la VM spécifiée.  Transmettez le *backupId* de l’étape 2 et le *moref* de l’étape 1.  Notez les informations *vmdkLocationsList*. 
+
+
+| 4 | `/4.1/vm/{moref}/attachvmdks`  a| 
+`Attach VMDKs`attache le VMDK spécifié à la VM d'origine.  Transmettez le *backupId* de l’étape 2 et le *moref* de l’étape 1.  Transmettez la *vmdkLocationsList* de l’étape 3 à l’attribut *vmdkLocations*.
+
+
+NOTE: Pour attacher un VMDK à une autre machine virtuelle, transmettez le moref de la machine virtuelle cible dans l'attribut alternateVmMoref.
+
+|===
+
+
+== Pour détacher les VMDK, suivez ce flux de travail :
+
+|===
+| Étape | API REST | Commentaires 
+
+
+| 1 | Aller à `\http://<vCenter-IP>/mob` | Recherchez la machine virtuelle moref à partir de l’URL des objets gérés VMware.  Notez le *moref* pour la VM sur laquelle vous souhaitez détacher un VMDK. 
+
+
+| 2 | `/4.1/vm/{moref}/backups` | `Get VM Backups`obtient une liste de sauvegardes pour la VM spécifiée.  Passez le *moref* de l’étape 1.  Notez le *backupId* de la sauvegarde que vous souhaitez restaurer. 
+
+
+| 3 | `/4.1/vm/{moref}/backups/
+{backupId}/vmdklocations` | `Get VMDK Locations`obtient une liste de VMDK pour la VM spécifiée.  Transmettez le *backupId* de l’étape 2 et le *moref* de l’étape 1.  Notez les informations *vmdkLocationsList*. 
+
+
+| 4 | `/4.1/vm/{moref}/detachvmdks` | `Detach VMDKs`détache le VMDK spécifié.  Passez le *moref* de l’étape 1.  Transmettez les détails VMDK *vmdkLocationsList* de l’étape 3 à l’attribut *vmdksToDetach*. 
+|===

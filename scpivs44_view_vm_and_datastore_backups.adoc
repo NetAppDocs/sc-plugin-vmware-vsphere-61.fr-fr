@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_view_vm_and_datastore_backups.html 
+keywords:  
+summary: Lorsque vous vous préparez à sauvegarder ou à restaurer une machine virtuelle ou une banque de données, vous souhaiterez peut-être voir toutes les sauvegardes disponibles pour cette ressource et afficher les détails de ces sauvegardes. 
+---
+= Afficher les sauvegardes de machines virtuelles et de banques de données
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Lorsque vous préparez la sauvegarde ou la restauration d'une machine virtuelle ou d'une banque de données, vous souhaiterez peut-être voir toutes les sauvegardes disponibles pour cette ressource et afficher les détails de ces sauvegardes.
+
+.À propos de cette tâche
+La navigation dans des dossiers de fichiers volumineux, tels que des dossiers de fichiers de 10 000, peut prendre une ou plusieurs minutes la première fois.  Les sessions de navigation suivantes prennent moins de temps.
+
+.Étapes
+. Connectez-vous au serveur vCenter.
+. Accédez à la page *Inventaire* et sélectionnez une banque de données ou une machine virtuelle.
+. Dans le volet de droite, sélectionnez *Configurer* > * SnapCenter Plug-in for VMware vSphere* > *Sauvegardes*.
++
+image:backup-view.png["Vue des sauvegardes"]
+
++
+Si l'option *Activer le verrouillage des instantanés secondaires* n'est pas sélectionnée lors de l'étape de création de la stratégie, elle prend la valeur définie pour l'option *Activer le verrouillage des instantanés principaux* par défaut.  Dans la liste des sauvegardes, le trait d'union dans le champ *Expiration du verrouillage de l'instantané secondaire* indique que les périodes de verrouillage primaire et secondaire sont identiques.
+
+. Sélectionnez la sauvegarde que vous souhaitez afficher.
+

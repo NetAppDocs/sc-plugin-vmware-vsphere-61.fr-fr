@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_unmount_a_backup.html 
+keywords:  
+summary: Vous pouvez démonter une sauvegarde lorsque vous n’avez plus besoin d’accéder aux fichiers du magasin de données. 
+---
+= Démonter une sauvegarde
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez démonter une sauvegarde lorsque vous n’avez plus besoin d’accéder aux fichiers du magasin de données.
+
+Si une sauvegarde est répertoriée comme montée dans l'interface graphique du client VMware vSphere, mais qu'elle n'est pas répertoriée dans l'écran de démontage de la sauvegarde, vous devez utiliser l'API REST. `/backup/{backup-Id}/cleanup` pour nettoyer les banques de données hors limites, puis réessayer la procédure de démontage.
+
+Si vous tentez de monter une copie de sauvegarde d'une banque de données NFS sur une machine virtuelle de stockage (SVM) avec le volume racine dans une relation de miroir de partage de charge et que vous risquez de rencontrer l'erreur `You may have reached the maximum number of NFS volumes configured in the vCenter. Check the vSphere Client for any error messages.` Pour éviter ce problème, modifiez le paramètre de volumes maximum en accédant à *ESX* > *Gérer* > *Paramètres* > *Paramètres système avancés* et en modifiant la valeur NFS.MaxVolumes. La valeur maximale est 256.
+
+.Étapes
+. Dans la page des raccourcis du client VMware vSphere, sélectionnez *Stockage*.
+. Dans le volet de navigation de gauche, cliquez avec le bouton droit sur une banque de données, puis sélectionnez * SnapCenter Plug-in for VMware vSphere* dans la liste déroulante, puis sélectionnez *Démonter* dans la liste déroulante secondaire.
++
+
+IMPORTANT: Assurez-vous de sélectionner le bon magasin de données à démonter.  Dans le cas contraire, vous risquez d’avoir un impact sur le travail de production.
+
+. Dans la boîte de dialogue *Démonter la banque de données clonée*, sélectionnez une banque de données, cochez la case *Démonter la banque de données clonée*, puis sélectionnez *Démonter*.
+

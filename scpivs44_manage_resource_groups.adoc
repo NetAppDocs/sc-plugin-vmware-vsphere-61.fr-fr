@@ -1,0 +1,73 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_manage_resource_groups.html 
+keywords:  
+summary: Vous pouvez créer, modifier et supprimer des groupes de ressources de sauvegarde et effectuer des opérations de sauvegarde sur des groupes de ressources. 
+---
+= Gérer les groupes de ressources
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez créer, modifier et supprimer des groupes de ressources de sauvegarde et effectuer des opérations de sauvegarde sur des groupes de ressources.
+
+
+NOTE: Les groupes de ressources sont appelés tâches de sauvegarde dans la console de stockage virtuelle (VSC).
+
+
+
+== Suspendre et reprendre les opérations sur les groupes de ressources
+
+Vous pouvez désactiver temporairement le démarrage des opérations planifiées sur un groupe de ressources. Plus tard, lorsque vous le souhaitez, vous pouvez activer ces opérations.
+
+.Étapes
+. Dans le volet de navigation gauche du plug-in SCV, sélectionnez *Groupes de ressources*, sélectionnez un groupe de ressources et sélectionnez *Suspendre* (ou sélectionnez *Reprendre*).
+. Dans la boîte de confirmation, sélectionnez *OK* pour confirmer.
+
+
+.Après avoir terminé
+Sur la page Groupes de ressources, l’état du travail pour la ressource suspendue est `Under_Maintenance` .  Vous devrez peut-être faire défiler vers la droite du tableau pour voir la colonne Statut du travail.
+
+Une fois les opérations de sauvegarde reprises, l'état du travail passe à `Production` .
+
+
+
+== Modifier les groupes de ressources
+
+Vous pouvez supprimer ou ajouter des ressources dans des groupes de ressources dans vCenter, détacher ou attacher des stratégies, modifier des planifications ou modifier toute autre option de groupe de ressources.
+
+.À propos de cette tâche
+Si vous souhaitez modifier le nom d'un groupe de ressources, n'utilisez pas les caractères spéciaux suivants dans les noms de machine virtuelle, de banque de données, de stratégie, de sauvegarde ou de groupe de ressources :
+
+% & * $ # @ ! \ / : * ? " < > - | ; ' , et l'espace. Un caractère de soulignement (_) est autorisé.
+
+.Étapes
+. Dans le volet de navigation gauche du plug-in SCV, sélectionnez *Groupes de ressources*, puis sélectionnez un groupe de ressources et sélectionnez *Modifier*.
+. Dans la liste de gauche de l'assistant *Modifier le groupe de ressources*, sélectionnez la catégorie que vous souhaitez modifier et saisissez vos modifications.
++
+Vous pouvez apporter des modifications dans plusieurs catégories.  Vous pouvez également modifier les ressources protégées secondaires dans cette option.
+
+. Sélectionnez *Suivant* jusqu’à ce que vous voyiez la page Résumé, puis sélectionnez *Terminer*.
+
+
+
+
+== Supprimer les groupes de ressources
+
+Vous pouvez supprimer un groupe de ressources dans vCenter si vous n’avez plus besoin de protéger les ressources du groupe de ressources.  Vous devez vous assurer que tous les groupes de ressources sont supprimés avant de supprimer SnapCenter Plug-in for VMware vSphere de vCenter.
+
+.À propos de cette tâche
+Toutes les opérations de suppression de groupe de ressources sont effectuées sous forme de suppressions forcées. L'opération de suppression détache toutes les stratégies du groupe de ressources vCenter, supprime le groupe de ressources de SnapCenter Plug-in for VMware vSphere et supprime toutes les sauvegardes et tous les snapshots du groupe de ressources.
+
+
+NOTE: Dans une relation SnapVault , le dernier instantané ne peut pas être supprimé ; par conséquent, le groupe de ressources ne peut pas être supprimé.  Avant de supprimer un groupe de ressources faisant partie d'une relation SnapVault , vous devez utiliser le Gestionnaire système ou l'interface de ligne de commande ONTAP pour supprimer la relation SnapVault , puis vous devez supprimer le dernier instantané.
+
+.Étapes
+. Dans le volet de navigation gauche du plug-in SCV, sélectionnez *Groupes de ressources*, puis sélectionnez un groupe de ressources et sélectionnez *Supprimer*.
+. Dans la boîte de confirmation *Supprimer le groupe de ressources*, sélectionnez *OK* pour confirmer.
+

@@ -1,0 +1,162 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_create_backup_policies_for_vms_and_datastores.html 
+keywords:  
+summary: 'Vous devez créer des stratégies de sauvegarde avant d"utiliser le SnapCenter Plug-in for VMware vSphere pour sauvegarder des machines virtuelles et des banques de données.' 
+---
+= Créer des politiques de sauvegarde pour les machines virtuelles et les banques de données
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous devez créer des stratégies de sauvegarde avant d'utiliser le SnapCenter Plug-in for VMware vSphere pour sauvegarder des machines virtuelles et des banques de données.
+
+.Avant de commencer
+* Vous devez avoir lu les prérequis.
+* Vous devez avoir des relations de stockage secondaires configurées.
++
+** Si vous répliquez des snapshots vers un stockage secondaire miroir ou coffre, les relations doivent être configurées et l'administrateur SnapCenter doit vous avoir attribué les machines virtuelles de stockage pour les volumes source et de destination.
+** Pour transférer avec succès des snapshots vers un stockage secondaire pour les relations Version-FlexibleMirror sur une banque de données NFS ou VMFS, assurez-vous que le type de stratégie SnapMirror est Miroir asynchrone et que l'option « all_source_snapshots » est cochée.
+** Lorsque le nombre de snapshots sur le stockage secondaire (miroir-coffre-fort) atteint la limite maximale, l'activité d'enregistrement de la sauvegarde et d'application de la rétention dans l'opération de sauvegarde échoue avec l'erreur suivante : `This snapshot is currently used as a reference snapshot by one or more SnapMirror relationships. Deleting the snapshot can cause future SnapMirror operations to fail.`
++
+Pour corriger ce problème, configurez la stratégie de rétention SnapMirror pour le stockage secondaire afin d’éviter d’atteindre la limite maximale de snapshots.
+
++
+Pour plus d'informations sur la manière dont les administrateurs attribuent des ressources aux utilisateurs, reportez-vous à https://docs.netapp.com/us-en/snapcenter/get-started/rbac-snapcenter.html["Informations SnapCenter sur l'utilisation du contrôle d'accès basé sur les rôles"^] .
+
+
+
+* Si vous souhaitez des sauvegardes cohérentes avec les machines virtuelles, vous devez avoir installé et exécuté les outils VMware.  Les outils VMware sont nécessaires pour mettre les machines virtuelles en veille.  Les sauvegardes cohérentes avec les machines virtuelles ne sont pas prises en charge pour les machines virtuelles vVol.
+* La synchronisation active SnapMirror permet aux services professionnels de continuer à fonctionner même en cas de panne totale du site, en prenant en charge le basculement transparent des applications à l'aide d'une copie secondaire.
++
+
+NOTE: La synchronisation active SnapMirror est prise en charge uniquement pour les magasins de données VMFS.
+
++
+Pour protéger une banque de données VMFS sur un déploiement de synchronisation active SnapMirror , en tant qu'administrateur SnapCenter , vous devez :
+
++
+** Configurez les clusters et le médiateur comme décrit dans le rapport technique : https://docs.netapp.com/us-en/ontap/snapmirror-active-sync/mediator-install-task.html["Configurer le médiateur ONTAP et les clusters pour la synchronisation active SnapMirror"] .
+** Ajoutez le volume associé à la banque de données VMFS au groupe de cohérence et créez une relation de protection des données à l'aide de la stratégie de protection _AutomatedFailOver_ ou _AutomatedFailOverDuplex_ entre deux systèmes de stockage ONTAP .  La stratégie _AutomatedFailOverDuplex_ est prise en charge à partir de la version ONTAP 9.15.1.
+
+
+
+
+
+NOTE: Dans la configuration en éventail, le groupe de cohérence n'est pas pris en charge pour le site tertiaire.
+
+.À propos de cette tâche
+La plupart des champs de ces pages d’assistant sont explicites. Les informations suivantes décrivent certains des domaines pour lesquels vous pourriez avoir besoin de conseils.
+
+.Étapes
+. Dans le volet de navigation de gauche du plug-in SCV, sélectionnez *Politiques*.
+. Sur la page *Politiques*, sélectionnez *Créer* pour démarrer l'assistant.
+. Sur la page *Nouvelle politique de sauvegarde*, saisissez le nom de la politique et une description.
++
+** Mode lié
++
+En mode lié, chaque vCenter dispose d'un dispositif virtuel distinct. Par conséquent, vous pouvez utiliser des noms en double dans plusieurs vCenters.  Cependant, vous devez créer la politique dans le même vCenter que le groupe de ressources.
+
+** Caractères non pris en charge
++
+N'utilisez pas les caractères spéciaux suivants dans les noms de machines virtuelles, de banques de données, de clusters, de stratégies, de sauvegardes ou de groupes de ressources : % & * $ # @ ! \ / : * ? " < > - | ; ' , et l'espace.
+
++
+Un caractère de soulignement (_) est autorisé.
+
+
+
+. Spécifiez les paramètres de fréquence.
++
+La politique spécifie uniquement la fréquence de sauvegarde. Le calendrier de protection spécifique pour la sauvegarde est défini dans le groupe de ressources. Par conséquent, deux ou plusieurs groupes de ressources peuvent partager la même politique et la même fréquence de sauvegarde, mais avoir des planifications de sauvegarde différentes.
+
+. Cochez la case *Période de verrouillage* pour activer le verrouillage des instantanés.  Vous pouvez sélectionner les périodes de verrouillage des instantanés principaux et secondaires en jours/mois/années.
++
+
+NOTE: Quelle que soit la valeur de conservation définie dans la stratégie ONTAP SnapMirror , la copie de snapshot secondaire n'est pas supprimée avant la période de verrouillage de snapshot secondaire spécifiée.
+
+. Spécifiez les paramètres de conservation.
++
+
+IMPORTANT: Vous devez définir le nombre de conservations sur 2 sauvegardes ou plus si vous prévoyez d'activer la réplication SnapVault .  Si vous définissez le nombre de conservation sur 1 sauvegarde à conserver, l'opération de conservation peut échouer.  Cela est dû au fait que le premier instantané est l’instantané de référence pour la relation SnapVault jusqu’à ce que l’instantané le plus récent soit répliqué sur la cible.
+
++
+
+NOTE: La valeur de rétention maximale est de 1018 sauvegardes. Les sauvegardes échoueront si la rétention est définie sur une valeur supérieure à celle prise en charge par la version ONTAP sous-jacente.  Ceci est également vrai pour les magasins de données étendus.
+
+
+
+. Dans les champs *Réplication*, spécifiez le type de réplication vers le stockage secondaire, comme indiqué dans le tableau suivant :
++
+|===
+| Pour ce domaine… | Fais ceci… 
+
+
+| Mettre à jour SnapMirror après la sauvegarde  a| 
+Sélectionnez cette option pour créer des copies miroir des jeux de sauvegarde sur un autre volume ayant une relation SnapMirror avec le volume de sauvegarde principal.  Si un volume est configuré avec une relation miroir-coffre-fort, vous devez sélectionner uniquement l'option *Mettre à jour SnapVault après la sauvegarde* si vous souhaitez que les sauvegardes soient copiées vers les destinations miroir-coffre-fort.
+
+
+NOTE: Cette option est prise en charge pour les banques de données dans les volumes FlexGroup dans SnapCenter Plug-in for VMware vSphere 4.5 et versions ultérieures.
+
+
+NOTE: Pour protéger la banque de données VMFS sur le déploiement de synchronisation active SnapMirror , vous devez remplir les conditions préalables mentionnées dans la section _Avant de commencer_ et activer *Mettre à jour SnapMirror après la sauvegarde*.
+
+
+
+| Mettre à jour SnapVault après la sauvegarde  a| 
+Sélectionnez cette option pour effectuer une réplication de sauvegarde de disque à disque sur un autre volume ayant une relation SnapVault avec le volume de sauvegarde principal.
+
+
+IMPORTANT: Si un volume est configuré avec une relation miroir-coffre-fort, vous devez sélectionner uniquement cette option si vous souhaitez que les sauvegardes soient copiées vers les destinations miroir-coffre-fort.
+
+
+NOTE: Cette option est prise en charge pour les banques de données dans les volumes FlexGroup dans SnapCenter Plug-in for VMware vSphere 4.5 et versions ultérieures.
+
+
+
+| Étiquette d'instantané  a| 
+Saisissez une étiquette personnalisée facultative à ajouter aux instantanés SnapVault et SnapMirror créés avec cette politique.  L'étiquette d'instantané permet de distinguer les instantanés créés avec cette stratégie des autres instantanés sur le système de stockage secondaire.
+
+
+NOTE: Un maximum de 31 caractères est autorisé pour les étiquettes d'instantanés.
+
+|===
+. Facultatif : Dans les champs *Avancé*, sélectionnez les champs nécessaires.  Les détails du champ Avancé sont répertoriés dans le tableau suivant.
++
+|===
+| Pour ce domaine… | Fais ceci… 
+
+
+| Cohérence des machines virtuelles  a| 
+Cochez cette case pour mettre les machines virtuelles en veille et créer un instantané VMware à chaque exécution de la tâche de sauvegarde.
+
+Cette option n'est pas prise en charge pour vVols.  Pour les machines virtuelles vVol, seules les sauvegardes cohérentes en cas de panne sont effectuées.
+
+
+IMPORTANT: Vous devez disposer des outils VMware exécutés sur la machine virtuelle pour effectuer des sauvegardes cohérentes avec la machine virtuelle.  Si les outils VMware ne sont pas en cours d’exécution, une sauvegarde cohérente en cas de panne est effectuée à la place.
+
+
+NOTE: Lorsque vous cochez la case Cohérence de la machine virtuelle, les opérations de sauvegarde peuvent prendre plus de temps et nécessiter plus d’espace de stockage.  Dans ce scénario, les machines virtuelles sont d’abord mises au repos, puis VMware effectue un snapshot cohérent des machines virtuelles, puis SnapCenter effectue son opération de sauvegarde, puis les opérations des machines virtuelles reprennent.  La mémoire invitée de la machine virtuelle n’est pas incluse dans les instantanés de cohérence de la machine virtuelle.
+
+
+
+| Inclure les magasins de données avec des disques indépendants | Cochez cette case pour inclure dans la sauvegarde tous les magasins de données avec des disques indépendants contenant des données temporaires. 
+
+
+| Scripts  a| 
+Saisissez le chemin d'accès complet du prescript ou du postscript que vous souhaitez que le SnapCenter Plug-in for VMware vSphere exécute avant ou après les opérations de sauvegarde. Par exemple, vous pouvez exécuter un script pour mettre à jour les interruptions SNMP, automatiser les alertes et envoyer des journaux.  Le chemin du script est validé au moment de l'exécution du script.
+
+
+NOTE: Les préscripts et les post-scripts doivent être situés sur la machine virtuelle de l'appliance virtuelle.  Pour saisir plusieurs scripts, appuyez sur *Entrée* après chaque chemin de script pour répertorier chaque script sur une ligne distincte.  Le caractère « ; » n'est pas autorisé.
+
+|===
+. Sélectionnez *Ajouter*.
++
+Vous pouvez vérifier que la politique est créée et examiner la configuration de la politique en sélectionnant la politique dans la page Politiques.
+
+

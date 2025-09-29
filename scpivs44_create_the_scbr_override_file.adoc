@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_create_the_scbr_override_file.html 
+keywords:  
+summary: 'Le `scbr.override` Le fichier de configuration est utilisé par le SnapCenter Plug-in for VMware vSphere dans les environnements qui prennent en charge les opérations de protection des données basées sur les applications SnapCenter .' 
+---
+= Créer le fichier de configuration scbr.override
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Le `scbr.override` Le fichier de configuration est utilisé par le SnapCenter Plug-in for VMware vSphere dans les environnements qui prennent en charge les opérations de protection des données basées sur les applications SnapCenter .
+
+. Aller à `/opt/netapp/scvservice/standalone_aegis/etc/scbr/scbr.override-template` .
+. Copiez le `scbr.override-template` fichier vers un nouveau fichier appelé `scbr.override` dans le `\opt\netapp\scvservice\standalone_aegis\etc\scbr` annuaire.
+

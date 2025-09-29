@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_rest_api_workflow__restore_deleted_vms.html 
+keywords:  
+summary: 'Pour effectuer des opérations de restauration pour les sauvegardes de machines virtuelles à l"aide du SnapCenter Plug-in for VMware vSphere , vous devez suivre la séquence prescrite d"appels d"API REST.' 
+---
+= Workflow de l'API REST pour restaurer les machines virtuelles supprimées
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pour effectuer des opérations de restauration pour les sauvegardes de machines virtuelles à l'aide du SnapCenter Plug-in for VMware vSphere , vous devez suivre la séquence prescrite d'appels d'API REST.
+
+Pour chaque API REST, ajoutez `\https://<server>:<port>` à l'avant de l'API REST pour former un point de terminaison complet.
+
+|===
+| Étape | API REST | Commentaires 
+
+
+| 1 | Aller à
+`\http://<vCenter-IP>/mob` | Recherchez l’UUID de la machine virtuelle à partir de l’URL des objets gérés par VMware.  Notez l'*uuid* de la VM que vous souhaitez restaurer. 
+
+
+| 2 | `/4.1/vm/{uuid}/backups` | `Get VM Backups`obtient une liste de sauvegardes pour la VM spécifiée.  Transmettez l'*uuid* de l'étape 1.  Notez le *backupId* de la sauvegarde que vous souhaitez restaurer. 
+
+
+| 3 | `/4.1/vm/backups/{backupId}/
+snapshotlocations` | `Get snapshot locations`obtient l'emplacement de l'instantané pour la sauvegarde spécifiée.  Transmettez le *backupId* de l’étape 2.  Notez les informations *snapshotLocationsList*. 
+
+
+| 4 | `/4.1/vm/{moref}/backups/
+availableesxhosts` | `Get available ESX Hosts`obtient les informations sur l'hôte sur lequel la sauvegarde est stockée.  Notez les informations *availableEsxHostsList*. 
+
+
+| 5 | `/4.1/vm/{uuid}/backups/
+{backupId}/restore` | `Restore VM from a backup using uuid or restore a deleted VM`restaure la sauvegarde spécifiée.  Transmettez l'*uuid* de l'étape 1.  Transmettez le *backupId* de l’étape 2.  Transmettez les informations des étapes 3 et 4 dans l'attribut *restoreLocations*.  Si la sauvegarde de la machine virtuelle est une sauvegarde partielle, définissez le `restartVM` paramètre à « false ».  *Remarque :* vous ne pouvez pas restaurer une machine virtuelle qui est un modèle. 
+|===

@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_rest_apis_overview.html 
+keywords:  
+summary: Vous pouvez utiliser le SnapCenter Plug-in for VMware vSphere pour effectuer des opérations courantes de protection des données.  Le plug-in possède des pages Web Swagger différentes des pages Web Swagger de Windows SnapCenter . 
+---
+= Aperçu
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez utiliser le SnapCenter Plug-in for VMware vSphere pour effectuer des opérations courantes de protection des données.  Le plug-in possède des pages Web Swagger différentes des pages Web Swagger de Windows SnapCenter .
+
+* Les workflows de l'API REST sont documentés pour les opérations suivantes sur les machines virtuelles et les banques de données à l'aide des API REST pour VMware vSphere :
++
+** Ajouter, modifier et supprimer des machines virtuelles et des clusters de stockage
+** Créer, modifier et supprimer des groupes de ressources
+** Sauvegarde de machines virtuelles, planifiée et à la demande
+** Restaurer les machines virtuelles existantes et les machines virtuelles supprimées
+** Restaurer les VMDK
+** Attacher et détacher des VMDK
+** Monter et démonter des banques de données
+** Téléchargez des tâches et générez des rapports
+** Modifier les horaires intégrés
+** Configurer la protection secondaire pour ASA r2
+
+
+* Opérations non prises en charge par les API REST pour VMware vSphere
++
+** Restauration du fichier invité
+** Installation et configuration du SnapCenter Plug-in for VMware vSphere
+** Attribuer des rôles RBAC ou des accès aux utilisateurs
+
+
+* `uri`paramètre
++
+Le `uri` le paramètre renvoie toujours une valeur « null ».
+
+* Délai de connexion expiré
++
+Le délai d'expiration par défaut est de 120 minutes (2 heures).  Vous pouvez configurer une valeur de délai d’expiration différente dans les paramètres vCenter.
+
+* Gestion des jetons
++
+Pour des raisons de sécurité, les API REST utilisent un jeton obligatoire qui est transmis avec chaque requête et utilisé dans tous les appels d'API pour la validation du client.  Les API REST pour VMware vSphere utilisent l’API d’authentification VMware pour obtenir le jeton.  VMware fournit la gestion des jetons.
+
++
+Pour obtenir le jeton, utilisez `/4.1/auth/login` API REST et fournit les informations d'identification vCenter.
+
+* Désignations des versions d'API
++
+Chaque nom d’API REST inclut le numéro de version de SnapCenter dans lequel l’API REST a été publiée pour la première fois.  Par exemple, l'API REST `/4.1/datastores/{moref}/backups` a été publié pour la première fois dans SnapCenter 4.1.
+
++
+Les API REST des versions futures seront généralement rétrocompatibles et seront modifiées pour s'adapter aux nouvelles fonctionnalités selon les besoins.
+
+

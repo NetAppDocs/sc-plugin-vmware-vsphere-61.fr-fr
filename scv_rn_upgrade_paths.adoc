@@ -1,0 +1,109 @@
+---
+permalink: scv_rn_upgrade_paths.html 
+sidebar: sidebar 
+keywords: upgrade paths, scv, 6.1 
+summary: Découvrez les nouvelles fonctionnalités disponibles dans SnapCenter Plug-in for VMware vSphere 6.1. 
+---
+= Chemins de mise à niveau
+:allow-uri-read: 
+
+
+[role="lead"]
+La version de SnapCenter Plug-in for VMware vSphere (SCV) vers laquelle vous pouvez effectuer une mise à niveau dépend de la version que vous utilisez actuellement.
+
+[NOTE]
+====
+La mise à niveau vers SnapCenter Plug-in for VMware vSphere (SCV) 4.8 et versions ultérieures est prise en charge uniquement sur VMware vCenter Server 7 Update 1 et versions ultérieures.  Pour le serveur VMware vCenter antérieur à la version 7 mise à jour 1, vous devez continuer à utiliser SCV 4.7.
+
+====
+[cols="50%,50%"]
+|===
+| Si vous êtes sur la version SCV… | Vous pouvez directement mettre à niveau SCV vers… 
+
+
+ a| 
+SCV 6,0
+ a| 
+SCV 6,1
+
+
+
+ a| 
+SCV 5,0
+ a| 
+SCV 6.0 et SCV 6.1
+
+
+
+ a| 
+SCV 4,9
+ a| 
+SCV 5.0 et SCV 6.0
+
+
+
+ a| 
+SCV 4,8
+ a| 
+SCV 4.9 et SCV 5.0
+
+
+
+ a| 
+SCV 4,7
+ a| 
+SCV 4.8 et SCV 4.9
+
+|===
+Pour les bases de données virtualisées et les systèmes de fichiers intégrés à SnapCenter, voici le chemin de mise à niveau :
+
+[cols="30%,30%,40%"]
+|===
+| Si vous utilisez | Si votre plug-in VMware est… | Vous pouvez directement passer à… 
+
+
+ a| 
+SnapCenter 6.1
+ a| 
+SCV 6,0
+ a| 
+SCV 6,1
+
+
+
+ a| 
+SnapCenter 6.0
+ a| 
+SCV 5,0
+ a| 
+SCV 6,0
+
+
+
+ a| 
+SnapCenter 5.0
+ a| 
+SCV 4,9
+ a| 
+SCV 5,0
+
+
+
+ a| 
+SnapCenter 4.9
+ a| 
+SCV 4,8
+ a| 
+SCV 4,9
+
+
+
+ a| 
+SnapCenter 4.8
+ a| 
+SCV 4,7
+ a| 
+SCV 4,8
+
+|===
+Pour obtenir les dernières informations sur les versions prises en charge, reportez-vous à https://imt.netapp.com/matrix/imt.jsp?components=134348;&solution=1517&isHWU&src=IMT["Outil de matrice d'interopérabilité NetApp"^] (IMT).

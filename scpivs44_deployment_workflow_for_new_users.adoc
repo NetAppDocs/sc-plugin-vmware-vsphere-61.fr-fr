@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_deployment_workflow_for_new_users.html 
+keywords:  
+summary: Vous pouvez utiliser ce flux de travail si vous n’avez jamais utilisé SnapCenter auparavant et que vous ne disposez d’aucune sauvegarde SnapCenter . 
+---
+= Flux de travail de déploiement pour les nouveaux utilisateurs
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si vous n’avez jamais utilisé SnapCenter auparavant et que vous ne disposez d’aucune sauvegarde SnapCenter , utilisez le flux de travail suivant pour commencer.
+
+image:scpivs44_image2.png["Flux de travail de déploiement pour les nouveaux utilisateurs"]

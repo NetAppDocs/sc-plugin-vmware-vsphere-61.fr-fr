@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_modify_the_network_settings.html 
+keywords:  
+summary: Vous pouvez modifier les paramètres réseau configurés dans SnapCenter Plug-in for VMware vSphere.  Ces paramètres sont utilisés par le plug-in pour accéder à vCenter. 
+---
+= Modifier les paramètres réseau
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez modifier les paramètres réseau configurés dans SnapCenter Plug-in for VMware vSphere.  Ces paramètres sont utilisés par le plug-in pour accéder à vCenter.
+
+.Avant de commencer
+Vous devez connaître l'adresse IP et les informations de connexion pour l'interface graphique de gestion du SnapCenter Plug-in for VMware vSphere . Vous devez également noter le jeton MFA généré à partir de la console de maintenance.
+
+* L'adresse IP était affichée lors du déploiement du SnapCenter Plug-in for VMware vSphere .
+* Utilisez les informations de connexion fournies lors du déploiement du SnapCenter Plug-in for VMware vSphere ou telles que modifiées ultérieurement.
+* Générez un jeton MFA à 6 chiffres à l’aide des options de configuration système de la console de maintenance.
+
+
+.Étapes
+. Connectez-vous à l'interface graphique de gestion du SnapCenter Plug-in for VMware vSphere .
++
+Utiliser le format `\https://<appliance-IP-address>:8080`
+
+. Sélectionnez l’icône Paramètres dans la barre d’outils supérieure.
++
+image:scpivs44_image31.png["SnapCenter Plug-in for VMware vSphere"]
+
+. Sur la page *Paramètres*, dans la section *Paramètres réseau*, sélectionnez l'adresse *IPv4* ou *IPv6*, puis sélectionnez *Modifier*.
++
+Saisissez les nouvelles informations et sélectionnez *Enregistrer*.
+
+. Si vous supprimez un paramètre réseau, procédez comme suit :
++
+** IPv4 : Dans le champ *Adresse IP*, saisissez `0.0.0.0` puis sélectionnez *Enregistrer*.
+** IPv6 : Dans le champ *Adresse IP* : saisissez `: :0` puis sélectionnez *Enregistrer*.
+
+
+
+
+
+NOTE: Si vous utilisez à la fois des adresses IPv4 et IPv6, vous ne pouvez pas supprimer les deux paramètres réseau.  Le réseau restant doit spécifier les champs Serveurs DNS et Domaines de recherche.

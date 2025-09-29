@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_download_the_ova_open_virtual_appliance.html 
+keywords:  
+summary: Le fichier .tar inclut OVA, qui est un ensemble de microservices pour la protection des données des machines virtuelles et des banques de données, ainsi que le fichier de certificat. 
+---
+= Téléchargez l'appliance virtuelle ouverte (OVA)
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Avant d’installer l’Open Virtual Appliance (OVA), ajoutez le certificat au vCenter.  Le fichier .tar contient les certificats OVA et Entrust Root et Intermediate, les certificats peuvent être trouvés dans le dossier certificats.  Le déploiement OVA est pris en charge dans VMware vCenter 7u1 et versions ultérieures.
+
+Dans les versions VMware vCenter 7.0.3 et supérieures, l'OVA signé par le certificat Entrust n'est plus approuvé.  Vous devez effectuer la procédure suivante pour résoudre le problème.
+
+.Étapes
+. Pour télécharger le plug-in SnapCenter pour VMware :
++
+** Connectez-vous au site de support NetApp ( https://mysupport.netapp.com/products/index.html["https://mysupport.netapp.com/products/index.html"^] ).
+** Dans la liste des produits, sélectionnez * SnapCenter Plug-in for VMware vSphere*, puis sélectionnez le bouton *Télécharger la dernière version*.
+** Téléchargez le SnapCenter Plug-in for VMware vSphere `.tar` fichier vers n'importe quel emplacement.
+
+
+. Extraire le contenu du fichier tar.  Le fichier tar contient le dossier OVA et certs.  Le dossier certs contient les certificats racine et intermédiaires Entrust.
+. Connectez-vous avec le client vSphere au serveur vCenter.
+. Accédez à *Administration > Certificats > Gestion des certificats*.
+. À côté de *Certificats racine de confiance*, sélectionnez *Ajouter*
++
+** Accédez au dossier _certs_.
+** Sélectionnez les certificats Entrust Root et Intermediate.
+** Installez chaque certificat un par un.
+
+
+. Les certificats sont ajoutés à un panneau sous *Certificats racine de confiance*. Une fois les certificats installés, OVA peut être vérifié et déployé.
+
+
+
+NOTE: Si l'OVA téléchargé n'est pas falsifié, la colonne *Éditeur* affiche *Certificat de confiance*.

@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: scpivs48_rest_apis_audit_logs.html 
+keywords:  
+summary: 'API REST pour générer des journaux d"audit' 
+---
+= API REST pour générer des journaux d'audit
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez collecter les détails du journal d'audit à partir des API REST Swagger ainsi que de l'interface utilisateur du plug-in SCV.
+
+Vous trouverez ci-dessous les API de repos Swagger :
+
+. GET 4.1/audit/logs : obtenir les données d'audit pour tous les journaux
+. GET 4.1/audit/logs/{filename} : obtenir les données d'audit pour un fichier journal spécifique
+. POST 4.1/audit/verify : déclencher la vérification du journal d'audit.
+. GET 4.1/audit/config : obtenir la configuration du serveur d'audit et de syslog
+. PUT 4.1/audit/config : mettre à jour la configuration du serveur d'audit et de syslog
+
+
+Pour générer des journaux d'audit pour les tâches client VMware vSphere à l'aide du SnapCenter Plug-in for VMware vSphere , vous devez utiliser les appels d'API REST pour VMware vSphere.
+
+Pour chaque API REST, ajoutez `\https://<server>:<port>/api` à l'avant de l'API REST pour former un point de terminaison complet.
+
+Utilisez les API REST suivantes dans la section Emplois pour obtenir des informations détaillées sur les emplois :
+
+|===
+| API REST | Commentaires 
+
+
+| `4.1/audit/logs` | renvoie les fichiers journaux d'audit avec les données d'intégrité 
+
+
+| `4.1/audit/logs/{filename}` | obtenir un fichier journal d'audit spécifique avec des données d'intégrité 
+
+
+| `4.1/audit/verify` | déclenche la vérification d'audit 
+
+
+| `4.1/audit/syslogcert` | met à jour le certificat du serveur syslog 
+|===

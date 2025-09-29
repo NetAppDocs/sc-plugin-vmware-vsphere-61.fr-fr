@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_extend_the_time_of_a_guest_file_restore_session.html 
+keywords:  
+summary: Par défaut, un VMDK de restauration de fichiers invités attaché est disponible pendant 24 heures, puis il est automatiquement détaché.  Vous pouvez prolonger le délai dans la page de configuration des invités. 
+---
+= Prolonger la durée d'une session de restauration de fichiers invités
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Par défaut, un VMDK de restauration de fichiers invités attaché est disponible pendant 24 heures, puis il est automatiquement détaché.  Vous pouvez prolonger le délai dans la page *Configuration invité*.
+
+.À propos de cette tâche
+Vous souhaiterez peut-être étendre une session de restauration de fichiers invités si vous souhaitez restaurer ultérieurement des fichiers ou des dossiers supplémentaires à partir du VMDK attaché.  Cependant, étant donné que les sessions de restauration de fichiers invités utilisent beaucoup de ressources, l'extension de la durée de la session ne doit être effectuée qu'occasionnellement.
+
+.Étapes
+. Dans le client VMware vSphere, sélectionnez *Restauration de fichiers invités*.
+. Sélectionnez une session de restauration de fichiers invités, puis sélectionnez l’icône Étendre la session invité sélectionnée dans la barre de titre du moniteur de session invité.
++
+La séance est prolongée de 24 heures supplémentaires.
+
+

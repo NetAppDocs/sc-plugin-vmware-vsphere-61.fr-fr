@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_guest_file_restore_scenarios_you_might_encounter.html 
+keywords:  
+summary: 'Lorsque vous tentez de restaurer un fichier invité, vous pouvez rencontrer des scénarios dans lesquels la session de restauration du fichier invité est vide, l"opération de connexion du disque de restauration du fichier invité échoue ou les sauvegardes ne sont pas détachées après l"arrêt de la session de restauration du fichier invité.' 
+---
+= Scénarios de restauration de fichiers invités que vous pourriez rencontrer
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Lorsque vous tentez de restaurer un fichier invité, vous pouvez rencontrer l’un des scénarios suivants.
+
+
+
+== La session de restauration du fichier invité est vide
+
+Ce problème se produit lorsque vous créez une session de restauration de fichiers invités et que, pendant que cette session était active, le système d'exploitation invité est redémarré.  Lorsque cela se produit, les VMDK du système d’exploitation invité peuvent rester hors ligne.  Par conséquent, lorsque vous essayez de parcourir la session de restauration de fichiers invités, la liste est vide.
+
+Pour corriger le problème, remettez manuellement les VMDK en ligne dans le système d’exploitation invité.  Lorsque les VMDK sont en ligne, la session de restauration des fichiers invités affiche le contenu correct.
+
+
+
+== L'opération de restauration du fichier invité et de connexion au disque échoue
+
+Ce problème se produit lorsque vous démarrez une opération de restauration de fichier invité, mais que l'opération de connexion de disque échoue même si les outils VMware sont en cours d'exécution et que les informations d'identification du système d'exploitation invité sont correctes.  Si cela se produit, l’erreur suivante est renvoyée :
+
+`Error while validating guest credentials, failed to access guest system using specified credentials: Verify VMWare tools is running properly on system and account used is Administrator account, Error is SystemError vix error codes = (3016, 0).`
+
+Pour corriger le problème, redémarrez le service Windows VMware Tools sur le système d’exploitation invité, puis réessayez l’opération de restauration du fichier invité.
+
+
+
+== L'e-mail de l'invité affiche ?????? pour le nom de fichier
+
+Ce problème se produit lorsque vous utilisez la fonction de restauration de fichiers invités pour restaurer des fichiers ou des dossiers avec des caractères non anglais dans les noms et que la notification par courrier électronique affiche « ?????? » pour les noms de fichiers restaurés.  La pièce jointe de l’e-mail répertorie correctement les noms des fichiers et dossiers restaurés.
+
+
+
+== Les sauvegardes ne sont pas détachées après l'arrêt de la session de restauration des fichiers invités
+
+Ce problème se produit lorsque vous effectuez une opération de restauration de fichier invité à partir d’une sauvegarde cohérente avec la machine virtuelle.  Pendant que la session de restauration de fichiers invités est active, une autre sauvegarde cohérente avec la machine virtuelle est effectuée pour la même machine virtuelle.  Lorsque la session de restauration de fichiers invités est déconnectée, manuellement ou automatiquement après 24 heures, les sauvegardes de la session ne sont pas détachées.
+
+Pour corriger le problème, détachez manuellement les VMDK qui ont été attachés à la session de restauration de fichiers invités active.

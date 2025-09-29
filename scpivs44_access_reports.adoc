@@ -1,0 +1,67 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_access_reports.html 
+keywords:  
+summary: Vous pouvez demander des rapports pour un ou plusieurs travaux à partir du tableau de bord. 
+---
+= Accéder aux rapports
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez demander des rapports pour un ou plusieurs travaux à partir du tableau de bord.
+
+L'onglet Rapports contient des informations sur les tâches sélectionnées sur la page Tâches du tableau de bord.  Si aucun travail n’est sélectionné, l’onglet Rapports est vide.
+
+.Étapes
+. À partir de la page de raccourcis du client vCenter, sélectionnez SnapCenter Plug-in for VMware vSphere (SCV).
+. Dans le volet de navigation de gauche de SCV, sélectionnez l'onglet *Tableau de bord* > *Rapports*.
+. Pour les rapports de sauvegarde, vous pouvez effectuer les opérations suivantes :
++
+.. Modifier le rapport
++
+Sélectionnez l'icône de filtre pour modifier la plage horaire, le type d'état du travail, les groupes de ressources et les politiques à inclure dans le rapport.
+
+.. Générer un rapport détaillé
++
+Double-cliquez sur n’importe quelle tâche pour générer un rapport détaillé pour cette tâche.
+
+
+
+. Facultatif : dans l’onglet Rapports, sélectionnez *Télécharger* et sélectionnez le format (HTML ou CSV).
++
+Vous pouvez également sélectionner l'icône de téléchargement pour télécharger les journaux des plug-ins.
+
+
+
+
+
+== Types de rapports du client VMware vSphere
+
+Le client VMware vSphere pour SnapCenter fournit des options de rapport personnalisables qui vous fournissent des détails sur vos tâches de protection des données et l'état des ressources du plug-in.  Vous pouvez générer des rapports pour la protection principale uniquement.
+
+
+NOTE: Les planifications de sauvegarde sont exécutées dans le fuseau horaire dans lequel SnapCenter Plug-in for VMware vSphere est déployé. vCenter signale les données dans le fuseau horaire dans lequel se trouve vCenter.  Par conséquent, si le SnapCenter Plug-in for VMware vSphere et vCenter se trouvent dans des fuseaux horaires différents, les données du tableau de bord du client VMware vSphere peuvent ne pas être identiques aux données des rapports.
+
+Le tableau de bord affiche des informations sur les sauvegardes migrées uniquement après l'exécution des sauvegardes post-migration.
+
+|===
+| Type de rapport | Description 
+
+
+| Rapport de sauvegarde | Affiche les données d'aperçu sur les tâches de sauvegarde.  Sélectionnez une section/un statut sur le graphique pour voir une liste des tâches avec ce statut dans l'onglet *Rapports*.  Pour chaque tâche, le rapport répertorie l'ID de la tâche, le groupe de ressources correspondant, la politique de sauvegarde, l'heure de début et la durée, l'état et les détails de la tâche qui incluent le nom de la tâche (nom de l'instantané) si la tâche est terminée, ainsi que tous les messages d'avertissement ou d'erreur.  Vous pouvez télécharger le tableau du rapport au format HTML ou CSV.  Vous pouvez également télécharger les journaux de travail du Job Monitor pour tous les travaux (pas seulement les travaux du rapport).  Les sauvegardes supprimées ne sont pas incluses dans le rapport. 
+
+
+| Rapport de montage | Affiche les données d'aperçu sur les tâches de montage.  Sélectionnez une section/un statut sur le graphique pour voir une liste des tâches avec ce statut dans l'onglet Rapports.  Pour chaque tâche, le rapport répertorie l'ID de la tâche, l'état de la tâche, le nom de la tâche et les heures de début et de fin de la tâche.  Le nom du travail inclut le nom de l'instantané.  Par exemple: `Mount Backup <snapshot-copy-name>` Vous pouvez télécharger le tableau du rapport au format HTML ou CSV.  Vous pouvez également télécharger les journaux de travail du Job Monitor pour tous les travaux (pas seulement les travaux du rapport). 
+
+
+| Rapport de restauration | Affiche des informations générales sur l'état des tâches de restauration.  Sélectionnez une section/un statut sur le graphique pour voir une liste des tâches avec ce statut dans l'onglet Rapports.  Pour chaque tâche, le rapport répertorie l'ID de la tâche, l'état de la tâche, le nom de la tâche et les heures de début et de fin de la tâche.  Le nom du travail inclut le nom de l'instantané.  Par exemple: `Restore Backup <snapshot-copy-name>` Vous pouvez télécharger le tableau du rapport au format HTML ou CSV.  Vous pouvez également télécharger les journaux de travail du Job Monitor pour tous les travaux (pas seulement les travaux du rapport). 
+
+
+| Dernier rapport sur l'état de protection des machines virtuelles ou des banques de données | Affiche des informations générales sur l'état de protection, pendant le nombre de jours configuré, pour les machines virtuelles et les banques de données gérées par le SnapCenter Plug-in for VMware vSphere.  La valeur par défaut est de 7 jours.  Pour modifier la valeur dans le fichier de propriétés, reportez-vous àlink:scpivs44_modify_configuration_default_values.html["Modifier les valeurs par défaut de la configuration"] .  Sélectionnez une section/un statut sur le graphique de protection principal pour voir une liste des machines virtuelles ou des banques de données avec ce statut dans l'onglet *Rapports*.  Le rapport sur l'état de protection des machines virtuelles ou des banques de données pour les machines virtuelles et les banques de données protégées affiche les noms des machines virtuelles ou des banques de données qui ont été sauvegardées pendant le nombre de jours configuré, le nom du dernier instantané et les heures de début et de fin de la dernière exécution de sauvegarde.  Le rapport sur l'état de protection des machines virtuelles ou des banques de données pour les machines virtuelles ou les banques de données non protégées affiche les noms des machines virtuelles ou des banques de données qui n'ont effectué aucune sauvegarde réussie pendant le nombre de jours configuré.  Vous pouvez télécharger le tableau du rapport au format HTML ou CSV.  Vous pouvez également télécharger les journaux de travail du Job Monitor pour tous les travaux (pas seulement les travaux du rapport).  Ce rapport est actualisé toutes les heures lorsque le cache du plug-in est actualisé.  Par conséquent, le rapport peut ne pas afficher les machines virtuelles ou les banques de données récemment sauvegardées. 
+|===

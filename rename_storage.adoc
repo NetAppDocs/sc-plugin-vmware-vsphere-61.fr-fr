@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: rename_storage.html 
+keywords:  
+summary: 'Vous pouvez renommer le stockage à l"aide de l"API REST.' 
+---
+= Restaurer la sauvegarde du stockage renommé
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Lorsque le stockage est renommé, les flux de travail utilisant des sauvegardes effectuées avant le changement de nom échouaient.  Avec l'introduction de la fonctionnalité de renommage de sauvegarde, accessible exclusivement via l'API REST, il est désormais possible d'utiliser les sauvegardes effectuées avant le renommage du stockage.  Le flux de travail et l'utilisation de l'API REST sont décrits ci-dessous.
+
+
+NOTE: Le système de stockage ASA r2 ne prend pas en charge la fonctionnalité de dénomination des instantanés _recent.
+
+.Étapes
+. Ajoutez ou mettez à jour la nouvelle connexion de stockage, en vous assurant que le nouveau nom de cluster ou de SVM est reflété dans SCV.
+. Redémarrez le service pour actualiser les caches comme décrit dans l'article de la base de connaissances : https://kb.netapp.com/mgmt/SnapCenter/SCV_backups_fail_after_SVM_rename["Les sauvegardes SCV échouent après le changement de nom de SVM"]
+. Créer une nouvelle sauvegarde.
+. Utilisez les détails de sauvegarde pour trouver les anciens et les nouveaux noms de stockage.
+. Dans l’écran *Sauvegardes* du client vSphere, sélectionnez la sauvegarde pour voir ses détails.
+. Accédez à Swagger depuis l'URL : `\https://<SCV-IP>:8144/api/swagger-ui/index.html`
++
+Utilisez l’API suivante pour renommer le stockage :
+
++
+PATCH /4.1/système de stockage
+
++
+Exemple : { "existingSVM": { "name": "string" }, "newSVM": { "name": "string" } }
+
++
+Réponse:
+
++
+{ "statusMessage": "OK", "statusCode": 200, "responseMessage": [ "Le système de stockage a été renommé avec succès."  ] }
+
++
+Après avoir exécuté cette API, vous pourrez exécuter tous les flux de travail, y compris l’opération de restauration à partir de l’ancienne sauvegarde.
+
+

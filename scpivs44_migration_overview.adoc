@@ -1,0 +1,68 @@
+---
+sidebar: sidebar 
+permalink: scpivs44_migration_overview.html 
+keywords:  
+summary:  
+---
+= Aperçu de la migration
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La commande de migration migre les métadonnées à partir de # SnapCenter 4.0 et versions ultérieures uniquement#.  Si vous utilisez une version antérieure de SnapCenter , vous devez d’abord effectuer une mise à niveau avant de pouvoir migrer.
+
+* Ce qui a été migré comprend
++
+** Qu'est-ce qui est migré
++
+Métadonnées SnapCenter , qui incluent les systèmes de stockage, les limitations personnalisées et les paramètres de messagerie dans le fichier de configuration SnapCenter , les stratégies, les groupes de ressources, les métadonnées de sauvegarde et les montages.  (la migration échoue lorsqu'elle rencontre des prescripts ou des postscripts)
+
+** Ce qui n'est pas migré
++
+Pré- et post-scripts configurés pour les groupes de ressources
+
++
+Sessions de restauration de fichiers invités actives, informations d'identification de restauration de fichiers invités et machines virtuelles proxy
+
++
+Si vous démarrez la migration alors qu’une session de restauration de fichiers invités est active, la session est supprimée et le disque connecté n’est pas démonté.  Vous devrez peut-être supprimer manuellement le disque connecté.
+
++
+`scbr.override`fichier de configuration
+
+
+
+* Les hôtes SnapCenter sont suspendus
++
+Pour garantir la réussite de la migration, la commande de migration suspend tous les hôtes enregistrés auprès de SnapCenter.  Une fois le processus de migration terminé avec succès, les hôtes SnapCenter sont repris.
+
+* Processus d'applet de commande de migration
++
+Vous devez utiliser l'applet de commande Windows Powershell `invoke-SCVOVAMigration` pour chaque instance du SnapCenter Plug-in for VMware vSphere enregistrée auprès de SnapCenter.
+
++
+L'applet de commande effectue les opérations suivantes :
+
++
+** Suspend toutes les planifications pour éviter les échecs de travail pendant la migration.  Après une migration réussie, les planifications sont automatiquement réactivées.
+** Migre les connexions de stockage et les métadonnées.
+** Crée des planifications de sauvegarde pour les sauvegardes post-migration.
+** Désinstalle le SnapCenter Plug-in for VMware vSphere de l'hôte Windows.
++
+Si le SnapCenter Plug-in for VMware vSphere est installé sur l'hôte SnapCenter Server et que la protection est configurée pour le référentiel SnapCenter , le processus de migration désinstalle également le package de plug-in Windows qui contient le SnapCenter Plug-in for VMware vSphere et le plug-in SnapCenter pour Windows, puis réinstalle la dernière version du plug-in SnapCenter pour Windows pour prendre en charge la protection du référentiel. Le type d’hôte dans l’interface graphique de SnapCenter passe de « vsphere » à « Windows ».
+
+** Supprime l’hôte vSphere et les groupes de ressources du serveur Windows SnapCenter .
+** Active les tâches de sauvegarde sur le SnapCenter Plug-in for VMware vSphere.
+** Enregistre l'hôte vSphere pour le SnapCenter Plug-in for VMware vSphere avec SnapCenter pour prendre en charge les sauvegardes basées sur les applications des bases de données virtualisées et des systèmes de fichiers (sauvegardes d'application sur VMDK).
+
+
+* Où sont stockées les métadonnées
++
+Les métadonnées des sauvegardes VMDK basées sur les applications sont stockées dans le référentiel SnapCenter Server.  Les métadonnées des sauvegardes de machines virtuelles et de banques de données sont stockées dans le référentiel SnapCenter Plug-in for VMware vSphere MySQL.
+
+

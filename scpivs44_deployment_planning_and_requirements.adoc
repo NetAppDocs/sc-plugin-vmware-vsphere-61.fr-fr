@@ -152,9 +152,6 @@ La configuration logicielle minimale requise pour la prise en charge des protoco
 
 
 | Espace disque minimum pour le SnapCenter Plug-in for VMware vSphere, les journaux et la base de données MySQL | 100 Go 
-
-
-| Taille maximale du tas du service vmcontrol dans l'appliance | 8 Go 
 |===
 
 

@@ -307,7 +307,6 @@
   <block id="110328d238985c18e0a7947b09b1ff0f" category="summary">Le SnapCenter Plug-in for VMware vSphere utilise le cryptage SSL pour une communication sécurisée avec le navigateur client.  Bien que cela permette de crypter les données sur le réseau, la création d'un nouveau certificat auto-signé ou l'utilisation de votre propre infrastructure d'autorité de certification (CA) ou d'une autorité de certification tierce garantit que le certificat est unique pour votre environnement.</block>
   <block id="8fbcd736aac5b9c6baba8f4db349f50e" category="doc">Créer et importer des certificats</block>
   <block id="9668b00eae1748d51afb7f725a15301a" category="inline-link">Article de la base de connaissances : Comment créer et/ou importer un certificat SSL dans SnapCenter Plug-in for VMware vSphere</block>
-  <block id="6886be2ac69a368a307204ccfa1e00d9" category="paragraph">Se référer à<block ref="bf84a7958c466b4ea912f7e396459ac9" category="inline-link-rx"></block> pour plus d'informations.</block>
   <block id="0a4a3719bc7519d1162060e0f0e08f8a" category="doc">Créer des politiques de sauvegarde</block>
   <block id="a70216f52adf1eb56f9c607820ec2859" category="paragraph">Suivez les instructions ci-dessous pour créer des politiques de sauvegarde</block>
   <block id="bbe1604d17d5228e6cf954f520fbcea1" category="list-text">Dans le volet de navigation de gauche du plug-in SCV, sélectionnez *Politiques*, puis sélectionnez *Nouvelle politique*.</block>
@@ -768,8 +767,6 @@
   <block id="dde8b54fa4a91beedb7b736869c08569" category="cell">24 Go</block>
   <block id="3cb874290f06f3c2d44ce2e858bb041f" category="cell">Espace disque minimum pour le SnapCenter Plug-in for VMware vSphere, les journaux et la base de données MySQL</block>
   <block id="dcfebc6fbca2c5316f55c914e6593d2d" category="cell">100 Go</block>
-  <block id="f8bce6aa95f5621d608c29e258b620d2" category="cell">Taille maximale du tas du service vmcontrol dans l'appliance</block>
-  <block id="af5700014f646d2567efa6288d85ab2b" category="cell">8 Go</block>
   <block id="9a0980e2d2a75eb076f41f7a4d439162" category="section-title">Exigences de connexion et de port</block>
   <block id="3672cca688eb0474cd3fee2add1a2067" category="cell">Type de port</block>
   <block id="99ddf0e823c1be51589f68696f62cf56" category="cell">Port préconfiguré</block>
@@ -2173,4 +2170,5 @@
   <block id="c257f5c852c12409e63afb17104f69c5" category="sidebar">API REST</block>
   <block id="a3d53cfe9124531cb5f9bbfefe704326" category="sidebar">Flux de travail des API REST pour modifier les planifications intégrées</block>
   <block id="3da6944b1baaec4beb70694ac307fd1f" category="sidebar">Mettre à niveau vers un nouveau patch de la même version</block>
+  <block id="04bc8505634cea728bd42022dbbe2763" category="paragraph">Consultez <block ref="3cc65228ae073aa630520717edc687a9" category="inline-link-rx"></block> pour plus d'informations.</block>
 </blocks>

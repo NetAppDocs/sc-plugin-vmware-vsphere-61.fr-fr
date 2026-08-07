@@ -61,6 +61,7 @@ Les événements sont classés en trois grandes catégories :
 
 
 
+[[data-protection-events]]
 == Événements sur la protection des données
 
 Les ressources de SCV sont :
@@ -100,6 +101,7 @@ Le tableau suivant répertorie les opérations qui peuvent être effectuées sur
 |===
 
 
+[[maintenance-console-events]]
 == Événements de la console de maintenance
 
 Les opérations administratives dans la console de maintenance sont auditées.  Les options de console de maintenance disponibles sont :
@@ -125,6 +127,7 @@ Les opérations administratives dans la console de maintenance sont auditées.  
 
 
 
+[[admin-console-events]]
 == Événements de la console d'administration
 
 Les opérations suivantes dans l’interface utilisateur de la console d’administration sont auditées :
@@ -147,6 +150,7 @@ Les opérations suivantes dans l’interface utilisateur de la console d’admin
 
 
 
+[[configure-syslog-servers]]
 == Configurer les serveurs syslog
 
 Les journaux d'audit sont stockés dans l'appareil et leur intégrité est vérifiée périodiquement.  La transmission d'événements vous permet d'obtenir des événements de l'ordinateur source ou de transmission et de les stocker sur un ordinateur centralisé, qui est le serveur Syslog.  Les données sont cryptées lors du transit entre la source et la destination.
@@ -174,6 +178,7 @@ Cette tâche vous aide à configurer le serveur syslog.
 
 
 
+[[change-audit-log-settings]]
 == Modifier les paramètres du journal d'audit
 
 Vous pouvez modifier les configurations par défaut des paramètres du journal.

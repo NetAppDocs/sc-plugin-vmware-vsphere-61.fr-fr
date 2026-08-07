@@ -20,6 +20,7 @@ Pour chaque API REST, ajoutez `\https://<server>:<port>` à l'avant de l'API RES
 
 
 
+[[to-mount-datastores-follow-this-workflow]]
 == Pour monter des magasins de données, suivez ce flux de travail :
 
 |===
@@ -46,6 +47,7 @@ availableEsxHosts` | `Get the list of Available Esxi Hosts`obtient la liste des 
 |===
 
 
+[[to-unmount-datastores-follow-this-workflow]]
 == Pour démonter les banques de données, suivez ce flux de travail :
 
 |===

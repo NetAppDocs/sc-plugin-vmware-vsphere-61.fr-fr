@@ -1909,7 +1909,6 @@
   <block id="015b635404a717ebcfa72500098a5d70" category="summary">Si vous utilisez le SnapCenter Plug-in for VMware vSphere , vous pouvez effectuer une mise à niveau vers une version plus récente.</block>
   <block id="331b48aba7178950c3dc14c31a21f9c0" category="doc">Mise à niveau à partir d'une version antérieure du SnapCenter Plug-in for VMware vSphere</block>
   <block id="12cbe201763ebb8c3712b94674ec18dc" category="admonition">La mise à niveau vers SCV 6.1 est prise en charge uniquement sur VMware vCenter Server 7 mise à jour 1 et les versions ultérieures. Pour VMware vCenter Server antérieur à la version 7 mise à jour 1, vous devez continuer à utiliser SCV 4.7. La mise à niveau est perturbatrice sur les versions non prises en charge du serveur VMware vCenter.</block>
-  <block id="637f9e5cc0956a7a76dc0a24cefff651" category="paragraph">Si vous utilisez le SnapCenter Plug-in for VMware vSphere , vous pouvez effectuer une mise à niveau vers une version plus récente.  Le processus de mise à niveau annule l'enregistrement du plug-in existant et déploie un plug-in compatible uniquement avec vSphere 7.0U1 et les versions ultérieures.</block>
   <block id="e614f4fd5db40ad1197def61d63aaeef" category="section-title">Chemins de mise à niveau</block>
   <block id="224ceeb2917402bd6d8dd7a3e2f19e1a" category="cell">Si vous utilisez la version SnapCenter Plug-in for VMware vSphere (SCV)...</block>
   <block id="6f95773fb09a10c0a1a8350183ddd7fd" category="cell">Vous pouvez directement mettre à niveau SnapCenter Plug-in for VMware vSphere vers...</block>
@@ -1931,7 +1930,6 @@
   <block id="d00ac81a0a443883139be6455462a9b5" category="list-text">Connectez-vous à l'interface graphique de gestion du SnapCenter Plug-in for VMware vSphere . L'adresse IP s'affiche lorsque vous déployez le SnapCenter Plug-in for VMware vSphere.</block>
   <block id="a08655c19df01f4238142581122cdafd" category="list-text">Sélectionnez *Configuration* dans le volet de navigation de gauche, puis sélectionnez l’option *Service* dans la section Détails du plug-in pour désactiver le plug-in.</block>
   <block id="47ad474a6a92b78b6ce74b61fe8b6bbb" category="list-text">Téléchargez la mise à niveau<block ref="1ba589501f1cc472dfdecac1bd09a624" prefix=" " category="inline-code"></block> déposer.</block>
-  <block id="b41450a0b1e390fd09941d73050688f9" category="list-text">Connectez-vous au site de support NetApp<block ref="82ad09cc2a56a6454a10d6f7b4058c3c" category="inline-link-rx"></block> ).</block>
   <block id="85fbd4a2fc42ed8b114b6cc2f741cdb2" category="list-text">Dans la liste des produits, sélectionnez * SnapCenter Plug-in for VMware vSphere*, puis sélectionnez le bouton *TÉLÉCHARGER LA DERNIÈRE VERSION*.</block>
   <block id="7dfb2dcb3c7621537351eac0e0c6d1af" category="list-text">Téléchargez le SnapCenter Plug-in for VMware vSphere<block ref="1ba589501f1cc472dfdecac1bd09a624" prefix=" " category="inline-code"></block> fichier vers n'importe quel emplacement.</block>
   <block id="f5b0696bfd02863abb2d114ef575a203" category="list-text">Installez la mise à niveau.</block>
@@ -2171,4 +2169,10 @@
   <block id="a3d53cfe9124531cb5f9bbfefe704326" category="sidebar">Flux de travail des API REST pour modifier les planifications intégrées</block>
   <block id="3da6944b1baaec4beb70694ac307fd1f" category="sidebar">Mettre à niveau vers un nouveau patch de la même version</block>
   <block id="04bc8505634cea728bd42022dbbe2763" category="paragraph">Consultez <block ref="3cc65228ae073aa630520717edc687a9" category="inline-link-rx"></block> pour plus d'informations.</block>
+  <block id="13de5764e6fb4295243673d5d9cc5c32" category="paragraph">Le processus de mise à niveau désenregistre le plug-in existant et déploie un plug-in compatible uniquement avec vSphere 7.0U1 et les versions ultérieures.</block>
+  <block id="e7cf50365f6cd8b8191b1582a763572f" category="inline-link-macro">SnapCenter Plug-in pour VMware vSphere Planification du déploiement et exigences</block>
+  <block id="e265dbaceed2be137ef9239c0c28ca81" category="admonition">Avant de procéder à la mise à niveau, vérifiez que votre environnement répond aux exigences système. Consultez <block ref="a0e1882159016587140942a1478a5aea" category="inline-link-macro-rx"></block> pour plus de détails.</block>
+  <block id="ea3cddf9562a180e930578aed418e68a" category="paragraph">Pour obtenir les informations les plus récentes sur les versions prises en charge, veuillez consulter <block ref="5719f536bb1181247b912419a3646ab1" category="inline-link-macro-rx"></block>.</block>
+  <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link-macro">Site de support NetApp</block>
+  <block id="9eeb0054bc82844b2782a42bddf7c681" category="list-text">Connectez-vous au <block ref="fe673711457a0919d053a9db0146aa49" category="inline-link-macro-rx"></block>.</block>
 </blocks>

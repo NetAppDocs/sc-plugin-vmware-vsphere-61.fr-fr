@@ -41,6 +41,7 @@ Vous pouvez également sélectionner l'icône de téléchargement pour télécha
 
 
 
+[[types-of-reports-from-the-vmware-vsphere-client]]
 == Types de rapports du client VMware vSphere
 
 Le client VMware vSphere pour SnapCenter fournit des options de rapport personnalisables qui vous fournissent des détails sur vos tâches de protection des données et l'état des ressources du plug-in.  Vous pouvez générer des rapports pour la protection principale uniquement.

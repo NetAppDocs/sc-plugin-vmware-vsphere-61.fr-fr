@@ -18,6 +18,7 @@ Si vous utilisez le SnapCenter Plug-in for VMware vSphere, vCenter Server fourni
 
 
 
+[[vcenter-server-rbac]]
 == RBAC du serveur vCenter
 
 Ce mécanisme de sécurité s'applique à tous les travaux exécutés par le SnapCenter Plug-in for VMware vSphere, qui inclut les travaux cohérents avec les machines virtuelles, cohérents avec les pannes de machines virtuelles et cohérents avec les applications SnapCenter Server (application sur VMDK).  Ce niveau de RBAC restreint la capacité des utilisateurs vSphere à effectuer des tâches SnapCenter Plug-in for VMware vSphere sur des objets vSphere, tels que des machines virtuelles (VM) et des banques de données.
@@ -41,6 +42,7 @@ Au minimum, tous les utilisateurs doivent pouvoir afficher les objets vCenter. S
 
 
 
+[[ontap-rbac]]
 == ONTAP RBAC
 
 Ce mécanisme de sécurité s'applique uniquement aux tâches cohérentes avec l'application SnapCenter Server (application sur VMDK).  Ce niveau restreint la capacité de SnapCenter à effectuer des opérations de stockage spécifiques, telles que la sauvegarde du stockage des banques de données, sur un système de stockage spécifique.
@@ -55,6 +57,7 @@ Utilisez le flux de travail suivant pour configurer ONTAP et SnapCenter RBAC :
 
 
 
+[[validation-workflow-for-rbac-privileges]]
 == Flux de travail de validation pour les privilèges RBAC
 
 La figure suivante fournit un aperçu du flux de travail de validation des privilèges RBAC (vCenter et ONTAP) :

@@ -18,12 +18,14 @@ Vous pouvez utiliser des prescripts et des postscripts personnalisés dans le ca
 
 
 
+[[supported-script-types]]
 == Types de scripts pris en charge
 
 Les scripts Perl et shell sont pris en charge.  Les scripts shell doivent commencer par `!/bin/bash` . (`!/bin/sh` n'est pas pris en charge.)
 
 
 
+[[script-path-location]]
 == Emplacement du chemin du script
 
 Les préscripts et postscripts sont exécutés par le SnapCenter Plug-in for VMware vSphere.  Par conséquent, les scripts doivent être situés dans le SnapCenter Plug-in for VMware vSphere OVA, avec des autorisations exécutables.
@@ -34,6 +36,7 @@ Le chemin du script est validé au moment de l'exécution du script.
 
 
 
+[[where-to-specify-scripts]]
 == Où spécifier les scripts
 
 Les scripts sont spécifiés dans les politiques de sauvegarde. Lorsqu'une tâche de sauvegarde est démarrée, la politique associe automatiquement le script aux ressources en cours de sauvegarde.
@@ -42,6 +45,7 @@ Pour spécifier plusieurs scripts, appuyez sur *Entrée* après chaque chemin de
 
 
 
+[[when-scripts-are-executed]]
 == Lorsque les scripts sont exécutés
 
 Les scripts sont exécutés en fonction de la valeur définie pour BACKUP_PHASE.
@@ -68,6 +72,7 @@ Vérifiez les éléments suivants pour vérifier que les valeurs du script sont 
 
 
 
+[[environment-variables-passed-to-scripts]]
 == Variables d'environnement transmises aux scripts
 
 Vous pouvez utiliser les variables d’environnement indiquées dans le tableau suivant dans les scripts.
@@ -106,12 +111,14 @@ SUSPENDED`
 |===
 
 
+[[script-timeouts]]
 == Délais d'expiration des scripts
 
 Le délai d'expiration des scripts de sauvegarde est de 15 minutes et ne peut pas être modifié.
 
 
 
+[[example-perl-script-1]]
 == Exemple de script PERL n°1
 
 L'exemple de script PERL suivant imprime les variables d'environnement lorsqu'une sauvegarde est exécutée.
@@ -130,6 +137,7 @@ L'exemple de script PERL suivant imprime les variables d'environnement lorsqu'un
 
 
 
+[[example-perl-script-2]]
 == Exemple de script PERL #2
 
 L'exemple suivant imprime des informations sur la sauvegarde.
@@ -159,6 +167,7 @@ L'exemple suivant imprime des informations sur la sauvegarde.
 
 
 
+[[example-shell-script]]
 == Exemple de script shell
 
 

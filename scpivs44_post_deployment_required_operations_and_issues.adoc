@@ -18,12 +18,14 @@ Après avoir déployé le SnapCenter Plug-in for VMware vSphere, vous devez term
 
 
 
+[[required-operations-after-deployment]]
 == Opérations requises après le déploiement
 
 Si vous êtes un nouvel utilisateur de SnapCenter , vous devez ajouter des machines virtuelles de stockage à SnapCenter avant de pouvoir effectuer des opérations de protection des données.  Lors de l'ajout de machines virtuelles de stockage, spécifiez le LIF de gestion.  Vous pouvez également ajouter un cluster et spécifier le LIF de gestion du cluster.  Pour plus d'informations sur l'ajout de stockage, reportez-vous àlink:scpivs44_add_storage_01.html["Ajouter du stockage"^] .
 
 
 
+[[deployment-issues-you-might-encounter]]
 == Problèmes de déploiement que vous pourriez rencontrer
 
 * Après le déploiement de l'appliance virtuelle, l'onglet *Tâches de sauvegarde* du tableau de bord peut ne pas se charger dans les scénarios suivants :
@@ -52,6 +54,7 @@ Si le problème persiste, redémarrez le service client VMware vSphere
 
 
 
+[[manage-authentication-errors]]
 == Gérer les erreurs d'authentification
 
 Si vous n’utilisez pas les informations d’identification d’administrateur, vous risquez de recevoir une erreur d’authentification après le déploiement de SnapCenter Plug-in for VMware vSphere ou après la migration.  Si vous rencontrez une erreur d’authentification, vous devez redémarrer le service.
@@ -63,6 +66,7 @@ Si vous n’utilisez pas les informations d’identification d’administrateur,
 
 
 
+[[register-snapcenter-plug-in-for-vmware-vsphere-with-snapcenter-server]]
 == Enregistrer le SnapCenter Plug-in for VMware vSphere avec SnapCenter Server
 
 Si vous souhaitez exécuter des workflows d'application sur VMDK dans SnapCenter (workflows de protection basés sur les applications pour les bases de données et les systèmes de fichiers virtualisés), vous devez enregistrer SnapCenter Plug-in for VMware vSphere auprès du serveur SnapCenter .

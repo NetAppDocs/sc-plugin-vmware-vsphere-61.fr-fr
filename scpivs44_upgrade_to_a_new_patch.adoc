@@ -24,6 +24,7 @@ Si le cache du plug-in n'est pas vidé, les tâches récentes ne s'affichent pas
 
 
 
+[[steps-for-clearing-the-cache]]
 == Étapes pour vider le cache
 
 . Localisez le `vsphere-client-serenity` dossier, puis recherchez le `com.netapp.scv.client-<release-number>` dossier et supprimez-le.

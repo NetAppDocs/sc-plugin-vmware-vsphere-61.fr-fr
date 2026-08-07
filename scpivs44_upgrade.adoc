@@ -16,10 +16,16 @@ summary: Si vous utilisez le SnapCenter Plug-in for VMware vSphere , vous pouvez
 
 NOTE: La mise à niveau vers SCV 6.1 est prise en charge uniquement sur VMware vCenter Server 7 mise à jour 1 et les versions ultérieures. Pour VMware vCenter Server antérieur à la version 7 mise à jour 1, vous devez continuer à utiliser SCV 4.7. La mise à niveau est perturbatrice sur les versions non prises en charge du serveur VMware vCenter.
 
-Si vous utilisez le SnapCenter Plug-in for VMware vSphere , vous pouvez effectuer une mise à niveau vers une version plus récente.  Le processus de mise à niveau annule l'enregistrement du plug-in existant et déploie un plug-in compatible uniquement avec vSphere 7.0U1 et les versions ultérieures.
+Si vous utilisez le SnapCenter Plug-in for VMware vSphere , vous pouvez effectuer une mise à niveau vers une version plus récente.
+
+Le processus de mise à niveau désenregistre le plug-in existant et déploie un plug-in compatible uniquement avec vSphere 7.0U1 et les versions ultérieures.
+
+
+CAUTION: Avant de procéder à la mise à niveau, vérifiez que votre environnement répond aux exigences système. Consultez link:scpivs44_deployment_planning_and_requirements.html["SnapCenter Plug-in pour VMware vSphere Planification du déploiement et exigences"] pour plus de détails.
 
 
 
+[[upgrade-paths]]
 == Chemins de mise à niveau
 
 |===
@@ -51,7 +57,7 @@ TIP: Sauvegardez le SnapCenter Plug-in for VMware vSphere OVA avant de démarrer
 
 NOTE: Le passage de votre configuration réseau statique à DHCP n'est pas pris en charge.
 
-Pour obtenir les dernières informations sur les versions prises en charge, reportez-vous à https://imt.netapp.com/matrix/imt.jsp?components=134348;&solution=1517&isHWU&src=IMT["Outil de matrice d'interopérabilité NetApp"^] (IMT).
+Pour obtenir les informations les plus récentes sur les versions prises en charge, veuillez consulter link:https://imt.netapp.com/matrix/imt.jsp?components=134348;&solution=1517&isHWU&src=IMT["Outil de matrice d'interopérabilité NetApp (IMT)"^].
 
 .Étapes
 . Préparez la mise à niveau en désactivant SnapCenter Plug-in for VMware vSphere.
@@ -62,7 +68,7 @@ Pour obtenir les dernières informations sur les versions prises en charge, repo
 
 . Téléchargez la mise à niveau `.iso` déposer.
 +
-.. Connectez-vous au site de support NetApp(https://mysupport.netapp.com/products/index.html[] ).
+.. Connectez-vous au link:https://mysupport.netapp.com/products/index.html["Site de support NetApp"^].
 .. Dans la liste des produits, sélectionnez * SnapCenter Plug-in for VMware vSphere*, puis sélectionnez le bouton *TÉLÉCHARGER LA DERNIÈRE VERSION*.
 .. Téléchargez le SnapCenter Plug-in for VMware vSphere `.iso` fichier vers n'importe quel emplacement.
 
